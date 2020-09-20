@@ -1,0 +1,132 @@
+@import 'vars';
+@import 'mixins';
+
+* {
+  &::before, &::after {
+    @include prefix(box-sizing, inherit, browsers);
+  }
+}
+
+body, input, textarea, select, button, p, a, div, span {
+  font-family: $def_font;
+  font-size: $def_font_size;
+  font-weight: $def_font_weight;
+}
+
+body {
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+
+figcaption,figure, div, main, header, footer, section {
+  display: block;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: $def_font;
+  font-weight: 500;
+
+  & > strong {
+    font-weight: 600;
+  }
+
+  &.text-center {
+    & > strong {
+      &:after {
+        margin: 10px auto 0 auto;
+      }
+    }
+  }
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-size: 2.35rem;
+}
+
+h3 {
+  font-size: 2.15rem
+}
+
+h4 {
+  font-size: 1.95rem;
+}
+
+h5 {
+  font-size: 1.75rem;
+}
+
+button, html [type="button"], [type="reset"], [type="submit"] {
+  @include prefixOnly(appearance, button, $browsers);
+}
+
+.hide {
+  display: none !important;
+}
+
+.show {
+  display: block !important;
+}
+
+.show-large {
+  @media screen and (max-width: $break-large) {
+    display: $disp_block_imp;
+  }
+}
+
+.show-small {
+  @media screen and (max-width: $break-small) {
+    display: $disp_block_imp;
+  }
+}
+
+.show-mobile {
+  @media screen and (max-width: $break-mobile) {
+    display: $disp_block_imp;
+  }
+}
+
+.hide-large {
+  @media screen and (max-width: $break-large) {
+    display: $disp_none_imp;
+  }
+}
+
+.hide-small {
+  @media screen and (max-width: $break-small) {
+    display: $disp_none_imp;
+  }
+}
+
+.hide-mobile {
+  @media screen and (max-width: $break-mobile) {
+    display: $disp_none_imp;
+  }
+}
+
+.sticky {
+  @include fixedTop(0, 0, 0);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  border-style: none;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.inner {
+  max-width: 100%;
+}
+
+.float-right {
+  float: right;
+}

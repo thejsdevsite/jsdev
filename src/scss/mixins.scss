@@ -1,0 +1,113 @@
+@import 'vars';
+
+@mixin prefixOnly($property, $value, $prefixes) {
+  @each $prefix in $prefixes{
+    -#{$prefix}-#{$property}: $value;
+  }
+}
+
+@mixin prefix($property, $value, $prefixes) {
+  @include prefixOnly($property, $value, $prefixes);
+  #{$property}: $value;
+}
+
+@mixin borderBox() {
+  @include prefix(box-sizing, border-box, $browsers);
+}
+
+@mixin fixedTop($top, $left, $right) {
+  position: fixed;
+  top: $top;
+  left: $left;
+  right: $right;
+}
+
+@mixin clear() {
+  display: table;
+  clear: both;
+  height: 0;
+  content: '';
+}
+
+@mixin clearBefore() {
+  &:before {
+    @include clear();
+  }
+}
+
+@mixin clearAfter() {
+  &:after {
+    @include clear();
+  }
+}
+
+@mixin clearBoth() {
+  @include clearBefore();
+  @include clearAfter();
+}
+
+@mixin zeroGap() {
+  margin: 0;
+  padding: 0;
+}
+
+@mixin zeroListGap() {
+  @include zeroGap();
+  list-style-type: none;
+}
+
+@mixin boxShadow($offX, $offY, $blur, $spread, $colour) {
+  @include prefix(box-shadow, #{$offX}px #{$offY}px #{$blur}px #{$spread}px #{$colour}, $browsers);
+}
+
+@mixin boxShadowNoSpread($offX, $offY, $blur, $colour) {
+  @include prefix(box-shadow, #{$offX}px #{$offY}px #{$blur}px #{$colour}, $browsers);
+}
+
+@mixin transition($opt, $time) {
+  @include prefix(transition, #{$opt} #{$time}, $browsers);
+}
+
+@mixin listStyleNoneNoSpacing() {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+@mixin fontSmoothing() {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@mixin nav_linkArrowIcon() {
+  @include iconFont($colour_nav_link_hov, $icon_font);
+
+  content: $icon_dn_arr;
+  position: $icon_level0_pos;
+  top: $icon_level0_top;
+  right: $icon_level0_right;
+  font-size: $icon_font_sz;
+}
+
+@mixin iconFont($color, $font) {
+  color: $color;
+  font-family: $font;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  @include fontSmoothing();
+}
+
+@mixin flexbox() {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+@mixin opacity($value) {
+  @include prefix(opacity, $value, browsers);
+  filter: alpha(opacity=$value*100);
+}

@@ -1,7 +1,15 @@
 const path = require(`path`)
 const { createFilePath } = require(`gatsby-source-filesystem`)
+const { getIsoFormatDate } = require("./src/utils/date")
+const { generateCustomPostSlug } = require("./src/utils/customSlug")
 
 exports.createPages = async ({ graphql, actions, reporter }) => {
+  await createPages(graphql, actions, reporter);
+  await createTagNodes(graphql, actions, reporter);
+  await createAuthorNodes(graphql, actions, reporter);
+}
+
+const createPages = async (graphql, actions, reporter) => {
   const { createPage } = actions
 
   // Define a template for blog post
@@ -9,36 +17,35 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   // Get all markdown blog posts sorted by date
   const result = await graphql(
-    `
-      {
+    `{
         allMarkdownRemark(
           sort: { fields: [frontmatter___date], order: DESC }
           limit: 1000
+          filter: {
+            frontmatter: {
+              published: { eq: true }
+            }
+          }
         ) {
           nodes {
+            id
             fields {
               slug
             }
             frontmatter {
-              title
+              date
             }
           }
         }
       }
-    `
-  )
+    `);
 
   if (result.errors) {
-    reporter.panicOnBuild(`There was an error loading your blog posts`, result.errors)
+    reporter.panicOnBuild(`There was an error loading the blog posts`, result.errors)
     return
   }
 
   const posts = result.data.allMarkdownRemark.nodes
-
-  // Create blog posts pages
-  // But only if there's at least one markdown file found at "content/blog" (defined in gatsby-config.js)
-  // `context` is available in the template as a prop and as a variable in GraphQL
-
   if (posts.length > 0) {
     posts.forEach((post, index) => {
       const previous = index === posts.length - 1 ? null : posts[index + 1]
@@ -57,16 +64,110 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   }
 }
 
+const createTagNodes = async (graphql, actions, reporter) => {
+  const { createPage } = actions;
+  const result = await graphql(`
+    query GetTagDetails {
+      allTagsYaml(
+        sort: {fields: [tag], order: ASC}
+        ) {
+        nodes {
+          id
+          tag
+          fields {
+            slug
+          }
+        }
+      }
+    }`);
+
+  if (result.errors) {
+    reporter.panicOnBuild(`There was an error loading the tags for creating page nodes`, result.errors)
+    return
+  }
+
+  const tagPageTemplate = path.resolve(`./src/templates/tag.js`)
+  const tags = result.data.allTagsYaml.nodes;
+  tags.forEach(tag => {
+    createPage({
+      path: tag.fields.slug,
+      component: tagPageTemplate,
+      context: {
+        slug: tag.fields.slug,
+        tag: tag.tag
+      },
+    });
+  });
+};
+
+const createAuthorNodes = async (graphql, actions, reporter) => {
+  const { createPage } = actions;
+  const result = await graphql(`
+    query GetAuthorDetails {
+      allAuthorYaml(
+        sort: {fields: [id], order: ASC}
+        ) {
+        nodes {
+          id
+          fields {
+            slug
+          }
+        }
+      }
+    }`);
+
+  if (result.errors) {
+    reporter.panicOnBuild(`There was an error loading the authors for creating page nodes`, result.errors)
+    return
+  }
+
+  const authorPageTempate = path.resolve(`./src/templates/author.js`)
+  const authors = result.data.allAuthorYaml.nodes
+  authors.forEach(author => {
+    createPage({
+      path: author.fields.slug,
+      component: authorPageTempate,
+      context: {
+        slug: author.fields.slug,
+        author: author.id
+      },
+    });
+  });
+};
+
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions
 
   if (node.internal.type === `MarkdownRemark`) {
     const value = createFilePath({ node, getNode })
+    const path = generateCustomPostSlug({
+      id: node.id,
+      frontmatter: node.frontmatter,
+      fields: {
+        slug: value
+      }
+    });
 
     createNodeField({
       name: `slug`,
       node,
-      value,
+      value: path
+    })
+  }
+
+  if (node.internal.type === `AuthorYaml`) {
+    createNodeField({
+      name: `slug`,
+      node,
+      value: `/a/${node.id}`
+    })
+  }
+
+  if (node.internal.type === `TagsYaml`) {
+    createNodeField({
+      name: `slug`,
+      node,
+      value: `/t/${node.tag}`
     })
   }
 }

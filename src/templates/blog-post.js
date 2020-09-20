@@ -5,11 +5,18 @@ import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { rhythm, scale } from "../utils/typography"
+import { useGetPostTags } from "../hooks/tags"
+import { useGetPostAuthors } from "../hooks/author"
+import TagList from "../components/tagList"
+import AuthorList from "../components/authorList"
 
 const BlogPostTemplate = ({ data, pageContext, location }) => {
   const post = data.markdownRemark
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const { previous, next } = pageContext
+
+  const tagList = useGetPostTags(post.frontmatter.posttags);
+  const authorList = useGetPostAuthors(post.frontmatter.authors);
 
   return (
     <Layout location={location} title={siteTitle}>
@@ -37,6 +44,8 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
           >
             {post.frontmatter.date}
           </p>
+          <TagList tagList={tagList}/>
+          <AuthorList authorList={authorList}/>
         </header>
         <section
           dangerouslySetInnerHTML={{ __html: post.html }}
@@ -99,6 +108,8 @@ export const pageQuery = graphql`
         title
         date(formatString: "MMMM DD, YYYY")
         description
+        posttags
+        authors
       }
     }
   }

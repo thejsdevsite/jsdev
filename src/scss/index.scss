@@ -1,0 +1,40 @@
+@import 'vars';
+@import 'mixins';
+@import 'base';
+
+.tag-list {
+  margin: 0 auto;
+  width: 100%;
+  margin-bottom: 1rem;
+
+  a {
+    font-size: 0.8rem;
+    border-radius: 5;
+    padding: 0.25rem;
+    display: inline-block;
+    color: #64707d;
+    text-decoration: none;
+    box-shadow: none;
+
+    .prefix {
+      opacity: 0.4;
+      font-style: italic;
+      padding-right: 1px;
+    }
+  }
+}
+
+.tab-bar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: $header_zindex;
+  height: $header_height;
+  background: $header_bgcolour;
+  @include prefix(box-shadow, 0 0 0 0 $colour_orange, $browsers);
+  
+  .tab-bar-container {
+
+  }
+}
