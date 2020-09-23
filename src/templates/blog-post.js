@@ -4,9 +4,8 @@ import { Link, graphql } from "gatsby"
 import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import { rhythm, scale } from "../utils/typography"
-import { useGetPostTags } from "../hooks/tags"
-import { useGetPostAuthors } from "../hooks/author"
+import { useGetPostTagsStatic } from "../hooks/static/getPostTagsStatic"
+import { useGetPostAuthors } from "../hooks/getPostAuthors"
 import TagList from "../components/tagList"
 import AuthorList from "../components/authorList"
 
@@ -15,7 +14,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const { previous, next } = pageContext
 
-  const tagList = useGetPostTags(post.frontmatter.posttags);
+  const tagList = useGetPostTagsStatic(post.frontmatter.posttags);
   const authorList = useGetPostAuthors(post.frontmatter.authors);
 
   return (
@@ -29,7 +28,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
           <h1
             itemProp="headline"
             style={{
-              marginTop: rhythm(1),
+              marginTop:0,
               marginBottom: 0,
             }}
           >
@@ -37,9 +36,8 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
           </h1>
           <p
             style={{
-              ...scale(-1 / 5),
               display: `block`,
-              marginBottom: rhythm(1),
+              marginBottom: 0,
             }}
           >
             {post.frontmatter.date}
@@ -53,7 +51,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
         />
         <hr
           style={{
-            marginBottom: rhythm(1),
+            marginBottom: 0,
           }}
         />
         <footer>

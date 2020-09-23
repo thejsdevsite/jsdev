@@ -1,6 +1,10 @@
 @import 'vars';
 @import 'mixins';
 @import 'base';
+@import 'layout';
+@import 'syntax';
+@import 'postroll';
+@import 'animations';
 
 .tag-list {
   margin: 0 auto;
@@ -17,24 +21,44 @@
     box-shadow: none;
 
     .prefix {
-      opacity: 0.4;
+      @include opacity(0.4);
       font-style: italic;
       padding-right: 1px;
     }
   }
 }
 
-.tab-bar {
+.top-bar {
   position: fixed;
   top: 0;
   right: 0;
   left: 0;
   z-index: $header_zindex;
-  height: $header_height;
+  height: var(--header-height);
   background: $header_bgcolour;
-  @include prefix(box-shadow, 0 0 0 0 $colour_orange, $browsers);
+  @include boxShadow(0, 1, 1, 0,rgba(0, 0, 0, 0.1));
   
-  .tab-bar-container {
+  .top-bar-container {
+    @include flexRow();
+    margin: auto;
+    align-items: center;
+    position: relative;
+    padding-right: var(--layout-padding);
+    padding-left: var(--layout-padding);
+    max-width: var(--site-width);
+    height: var(--header-height);
 
+    a {
+      @include flexbox();
+      margin: 0;
+      text-decoration: none;
+      padding: 0 7px 0 9px;
+      
+      img {
+        max-height: $header_logo_max_height;
+        max-width: $header_logo_max_width;
+        margin: 0;
+      }
+    }
   }
 }

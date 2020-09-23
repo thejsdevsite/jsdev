@@ -5,6 +5,7 @@ description: "Hello World"
 published: true
 posttags: ["nodejs","javascript"]
 authors: ["jmitchell"]
+hero: ./salty_egg.jpg
 ---
 
 This is my first post on my new fake blog! How exciting!

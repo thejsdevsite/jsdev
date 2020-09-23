@@ -5,7 +5,6 @@ import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import PostBrief from "../components/postBrief";
-import { rhythm, scale } from "../utils/typography"
 
 const AuthorTemplate = ({ pageContext, data, location }) => {
   const author = data.allAuthorYaml.edges[0].node;
@@ -32,7 +31,7 @@ const AuthorTemplate = ({ pageContext, data, location }) => {
           <h1
             itemProp="headline"
             style={{
-              marginTop: rhythm(1),
+              marginTop: 0,
               marginBottom: 0,
             }}
           >
@@ -40,9 +39,8 @@ const AuthorTemplate = ({ pageContext, data, location }) => {
           </h1>
           <p
             style={{
-              ...scale(-1 / 5),
               display: `block`,
-              marginBottom: rhythm(1),
+              marginBottom: 0,
             }}
           >
             {author.bio}

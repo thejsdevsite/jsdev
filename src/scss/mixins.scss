@@ -1,18 +1,30 @@
 @import 'vars';
 
-@mixin prefixOnly($property, $value, $prefixes) {
-  @each $prefix in $prefixes{
-    -#{$prefix}-#{$property}: $value;
+@mixin prefixOnly($property, $value, $prefixes, $important: false) {
+  @each $prefix in $prefixes {
+    @if $important {
+      -#{$prefix}-#{$property}: $value !important;
+    } @else {
+      -#{$prefix}-#{$property}: $value;
+    }
   }
 }
 
-@mixin prefix($property, $value, $prefixes) {
+@mixin prefix($property, $value, $prefixes, $important: false) {
   @include prefixOnly($property, $value, $prefixes);
-  #{$property}: $value;
+  @if $important {
+    #{$property}: $value !important;
+  } @else {
+    #{$property}: $value;
+  }
 }
 
 @mixin borderBox() {
   @include prefix(box-sizing, border-box, $browsers);
+}
+
+@mixin borderRadius($value, $important: false) {
+  @include prefix(border-radius, $value, $browsers, $important);
 }
 
 @mixin fixedTop($top, $left, $right) {
@@ -58,6 +70,10 @@
 
 @mixin boxShadow($offX, $offY, $blur, $spread, $colour) {
   @include prefix(box-shadow, #{$offX}px #{$offY}px #{$blur}px #{$spread}px #{$colour}, $browsers);
+}
+
+@mixin boxShadowInset($offX, $offY, $blur, $spread, $colour) {
+  @include prefix(box-shadow, inset #{$offX}px #{$offY}px #{$blur}px #{$spread}px #{$colour}, $browsers);
 }
 
 @mixin boxShadowNoSpread($offX, $offY, $blur, $colour) {
@@ -107,7 +123,38 @@
   display: flex;
 }
 
+@mixin flexCol() {
+  @include flexbox();
+  flex-direction: column;
+}
+
+@mixin flexRow() {
+  @include flexbox();
+  flex-direction: row;
+}
+
 @mixin opacity($value) {
   @include prefix(opacity, $value, browsers);
   filter: alpha(opacity=$value*100);
+}
+
+@mixin grid($gap, $tempCols) {
+  display: grid;
+  grid-gap: #{$gap};
+  grid-template-columns: #{$tempCols};
+}
+
+@mixin shimmer() {
+  background: #f6f7f8;
+  background-image: linear-gradient(to right, rgba(255,255,255,0.1) 10%, rgba(0,0,0,0.05) 25%, rgba(255,255,255,0.1) 40%);
+  background-repeat: no-repeat;
+  background-size: 800px 104px; 
+  display: inline-block;
+  position: relative; 
+  
+  @include prefix(animation-duration, 1.25s, $browsers);
+  @include prefix(animation-fill-mode, forwards, $browsers);
+  @include prefix(animation-iteration-count, infinite, $browsers);
+  @include prefix(animation-name, placeholderShimmer, $browsers);
+  @include prefix(animation-timing-function, linear, $browsers);
 }

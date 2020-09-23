@@ -1,17 +1,14 @@
 import { graphql, useStaticQuery } from "gatsby"
 
-export const useGetPostTags = (tags) => {
+export const useGetPostTagsStatic = (tags) => {
   const qlTags = useStaticQuery(graphql`
-    query GetTagDetails {
+    query useGetPostTagsStatic {
       allTagsYaml(
         sort: {fields: [tag], order: ASC}
         ) {
         nodes {
           id
           tag
-          icon
-          colour
-          size
           fields {
             slug
           }
@@ -30,3 +27,4 @@ export const useGetPostTags = (tags) => {
       slug: node.fields.slug
     }));
 }
+

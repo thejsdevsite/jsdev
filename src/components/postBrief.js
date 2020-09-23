@@ -1,8 +1,7 @@
 import React from "react"
 import { Link } from "gatsby"
-import { rhythm } from "../utils/typography"
-import { useGetPostTags } from "../hooks/tags"
-import { useGetPostAuthors } from "../hooks/author";
+import { useGetPostTagsStatic } from "../hooks/static/getPostTagsStatic"
+import { useGetPostAuthors } from "../hooks/getPostAuthors";
 import TagList from "../components/tagList";
 import AuthorList from "./authorList";
 
@@ -18,7 +17,7 @@ const PostBrief = ({ post, title }) => {
     </section>
   ) : null;
 
-  const tagList = useGetPostTags(post.frontmatter.posttags);
+  const tagList = useGetPostTagsStatic(post.frontmatter.posttags);
   const authorList = useGetPostAuthors(post.frontmatter.authors);
 
   return (
@@ -30,7 +29,7 @@ const PostBrief = ({ post, title }) => {
       <header>
         <h3
           style={{
-            marginBottom: rhythm(1 / 4),
+            marginBottom: 0,
           }}
         >
           <Link
