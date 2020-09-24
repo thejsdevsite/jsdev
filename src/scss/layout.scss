@@ -131,6 +131,27 @@
   width: var(--layout-sidebar-right-width);
 }
 
+.jsd-header-widget {
+  .jsd-sidebar-widget {
+    padding: 0;
+  }
+
+  .hidden {
+    display: grid !important;
+  }
+
+  .jsd-card {
+    margin-bottom: var(--su-6);
+    &.branded {
+      --fs-m: var(--fs-s);
+      --fs-base: #{$fnt-sz-xs};
+      --fs-xs: #{$fnt-sz-xxs};
+      --base-50: var(--base-70);
+      --base-60: var(--base-70);
+    }
+  }
+}
+
 .jsd-sidebar-widget {
   position: relative;
   display: block;
