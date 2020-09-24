@@ -11,7 +11,7 @@ import { Helmet } from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 import useGetAuthorDetailsStatic from "../hooks/static/getAuthorDetailsStatic"
 
-const SEO = ({ description, lang, meta, title, twitterCreator, location }) => {
+const SEO = ({ description, lang, meta, title, twitterCreator, location, heroImage }) => {
   const authorDetails = useGetAuthorDetailsStatic(twitterCreator).first();
   const { site } = useStaticQuery(
     graphql`
@@ -64,7 +64,7 @@ const SEO = ({ description, lang, meta, title, twitterCreator, location }) => {
     metaList.push(
       {
         name: `twitter:card`,
-        content: `summary_large_image"`,
+        content: `summary_large_image`,
       },
       {
         name: `twitter:creator`,
@@ -77,7 +77,12 @@ const SEO = ({ description, lang, meta, title, twitterCreator, location }) => {
     )
   }
 
-  if (location) {
+  if (heroImage) {
+    metaList.push({
+      name: `twitter:image`,
+      content: `${site.siteMetadata.siteUrl}${heroImage}`
+    })
+  } else if (location) {
     metaList.push({
       name: `twitter:image`,
       content: `${site.siteMetadata.siteUrl}${location.pathname}/twitter-card.jpg`
