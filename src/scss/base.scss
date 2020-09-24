@@ -520,6 +520,12 @@ button, html [type="button"], [type="reset"], [type="submit"] {
   }
 }
 
+.show-tablet {
+  @media screen and (max-width: $break-tablet) {
+    display: $disp_block_imp;
+  }
+}
+
 .show-mobile {
   @media screen and (max-width: $break-mobile) {
     display: $disp_block_imp;
