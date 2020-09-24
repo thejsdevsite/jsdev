@@ -1,14 +1,36 @@
 import React from "react";
-import { useStaticQuery, graphql } from "gatsby"
 import { Link } from "gatsby";
+import useGetPostTagDetailsStatic from "../../hooks/static/getPostTagDetailsStatic";
+import useGetFormattedTags from "../../hooks/static/getFormattedTags";
 
-const SidebarTags = () => {
-  const tags = useGetFormattedTags();
+const SidebarTagDetails = ({ tagDetails }) => {
+  if (!tagDetails) {
+    return null;
+  }
 
   return (
-    <aside className="side-bar" aria-label="Primary sidebar">
-      <nav className="sidebar-tags-browser scrolling-touch" aria-label="Primary sidebar nav">
-        <header className="fs-s fw-heavy ff-monospace">TAGS</header>
+    <div className="jsd-sidebar-widget">
+      <header>
+        <h3 className="fs-s fw-heavy m-0 ff-monospace">#{tagDetails.id}</h3>
+      </header>
+      <div className="widget-body">
+        <p className="fs-xs ff-monospace" dangerouslySetInnerHTML={{ __html: tagDetails.description.replace(/\\n/g, "<br/>") }} />
+      </div>
+    </div>
+  )
+}
+
+const SidebarAllTags = ({ tags }) => {
+  if (!tags) {
+    return null;
+  }
+
+  return (
+    <div className="jsd-sidebar-widget">
+      <header>
+        <h3 className="fs-s fw-heavy ff-monospace m-0 mb-2">Tags</h3>
+      </header>
+      <div className="widget-body">
         <div id="sidebar-tags">
           {tags.map(node => (
             <div key={node.id} className="sidebar-nav-element">
@@ -16,37 +38,24 @@ const SidebarTags = () => {
             </div>
           ))}
         </div>
-      </nav>
-    </aside>
+      </div>
+    </div>
   )
 }
 
-const useGetFormattedTags = () => {
-  const data = useStaticQuery(graphql`
-    query {
-      allTagsYaml(
-        sort: {fields: [tag], order: ASC}
-        ) {
-        nodes {
-          id
-          tag
-          fields {
-            slug
-          }
-        }
-      }
-    }
-  `);
+const SidebarTags = ({ sidebarTag = null }) => {
+  const tags = useGetFormattedTags();
+  let tagDetails = useGetPostTagDetailsStatic(sidebarTag)
+  tagDetails = tagDetails ? tagDetails.first() : null;
 
-  return data.allTagsYaml &&
-    data.allTagsYaml.nodes
-      .map(node => {
-        return {
-          id: node.id,
-          tag: node.tag,
-          slug: node.fields.slug
-        }
-      });
+  return (
+    <aside className="side-bar" aria-label="Primary sidebar">
+      <nav className="sidebar-tags-browser scrolling-touch" aria-label="Primary sidebar nav">
+        <SidebarTagDetails tagDetails={tagDetails} />
+        <SidebarAllTags tags={tags} />
+      </nav>
+    </aside>
+  )
 }
 
 export default SidebarTags;

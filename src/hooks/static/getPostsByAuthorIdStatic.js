@@ -1,8 +1,8 @@
 import { graphql, useStaticQuery } from "gatsby" 
 
-export const useGetPostsStatic = (limit = 0) => {
+const useGetPostsByAuthorIdStatic = (authorId) => {
   const result = useStaticQuery(graphql`
-    query useGetPostsStatic {
+    query useGetPostsByAuthorIdStatic {
       allMarkdownRemark(sort: {fields: [frontmatter___date], order: DESC}, limit: 1000) {
         nodes {
           id
@@ -28,7 +28,8 @@ export const useGetPostsStatic = (limit = 0) => {
     }
   `);
 
-  const list = result.allMarkdownRemark.nodes
+  return result.allMarkdownRemark.nodes
+    .filter(node => node.frontmatter.authors.includes(authorId))
     .map(node => ({
       id: node.id,
       ttr: node.timeToRead,
@@ -39,12 +40,6 @@ export const useGetPostsStatic = (limit = 0) => {
       tags: node.frontmatter.posttags,
       title: node.frontmatter.title
     }));
-
-    if (limit > 0) {
-      return list.slice(0, limit > list.length ? list.length : limit);
-    }
-
-    return list;
 }
 
-export default useGetPostsStatic;
+export default useGetPostsByAuthorIdStatic;

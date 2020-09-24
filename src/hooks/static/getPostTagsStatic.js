@@ -1,11 +1,9 @@
 import { graphql, useStaticQuery } from "gatsby"
 
 export const useGetPostTagsStatic = (tags) => {
-  const qlTags = useStaticQuery(graphql`
+  const result = useStaticQuery(graphql`
     query useGetPostTagsStatic {
-      allTagsYaml(
-        sort: {fields: [tag], order: ASC}
-        ) {
+      allTagsYaml(sort: {fields: [tag], order: ASC}) {
         nodes {
           id
           tag
@@ -18,7 +16,7 @@ export const useGetPostTagsStatic = (tags) => {
   `)
 
   const predicateTags = Array.isArray(tags) ? [...tags] : [tags];
-  const { nodes } = qlTags.allTagsYaml;
+  const { nodes } = result.allTagsYaml;
   
   return nodes
     .filter(node => predicateTags.includes(node.tag))

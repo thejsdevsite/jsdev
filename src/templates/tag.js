@@ -3,13 +3,14 @@ import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import PostRollByTagName from "../components/postRollByTagName";
+import useGetPostTagDetailsStatic from "../hooks/static/getPostTagDetailsStatic";
 
 const TagTemplate = ({ pageContext, data, location }) => {
   const { tag } = pageContext;
   const siteTitle = data.site.siteMetadata?.title || `Title`
 
   return (
-    <Layout location={location} title={siteTitle}>
+    <Layout location={location} title={siteTitle} sidebarTag={tag}>
       <SEO title="All Posts" />
       <header className="mb-2">
         <h2 className="fs-m fw-heavy m-0 ff-monospace">Posts</h2>

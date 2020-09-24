@@ -1,10 +1,100 @@
 :root {
-  --syntax-background-color: #08090a;
-  --syntax-text-color: #f8f8f2;
-  --syntax-comment-color: #808080;
-  --syntax-declaration-color: #f39c12;
-  --syntax-literal-color: #dda0dd;
-  --syntax-error-color: #f9690e;
-  --syntax-name-color: #7ed07e;
-  --syntax-string-color: #f2ca27;
+  --syntax-background-colour: #08090a;
+  --syntax-keyword-colour: rgb(14, 167, 233);
+  --syntax-text-colour: #f8f8f2;
+  --syntax-comment-colour: #808080;
+  --syntax-declaration-colour: #f39c12;
+  --syntax-literal-colour: #dda0dd;
+  --syntax-error-colour: #f9690e;
+  --syntax-name-colour: #7ed07e;
+  --syntax-string-colour: #f2ca27;
+  --syntax-function-colour: #DD4A68;
+}
+
+.gatsby-highlight {
+  @include borderRadius(var(--border-radius));
+  font-family: var(--ff-console);
+  font-size: var(--fs-s);
+
+  background: var(--syntax-background-colour);
+  color: var(--syntax-text-colour);
+  padding: var(--su-2);
+  margin: 0;
+  white-space: pre;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  overflow-wrap: initial;
+
+  @media (min-width: $break-small) {
+    padding: var(--su-3) var(--su-6);
+  }
+
+  pre {
+    background: var(--syntax-background-colour);
+    color: var(--syntax-text-colour);
+    padding: var(--su-2);
+    margin: 0;
+    white-space: pre;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    overflow-wrap: initial;
+
+    code {
+      background: rgba(0,0,0,0.15);
+      color: var(--color-body-color);
+      border-radius: var(--radius);
+      max-width: 100%;
+      padding: 0.1em 0.25em;
+    }
+  }
+
+  code[class*="language-"], pre[class*="language-"] {
+    background: var(--syntax-background-colour);
+    color: var(--syntax-text-colour);
+  }
+
+  .token.atrule, .token.attr-value, .token.keyword {
+    color: var(--syntax-keyword-colour);
+  }
+
+  .token.function, .token.class-name {
+    color: var(--syntax-function-colour);
+  }
+
+  .token.function-variable {
+    color: var(--syntax-declaration-colour);
+  }
+
+  .token.operator, .token.entity, .token.url, .language-css .token.string, .style .token.string {
+    color: var(--syntax-text-colour);
+    background: transparent;
+  }
+
+  .token.punctuation {
+    color: var(--syntax-text-colour);
+  }
+
+  .token.selector, .token.attr-name, .token.string, .token.char, .token.builtin, .token.inserted {
+    color: var(--syntax-string-colour);
+  }
+
+  .token.comment, .token.prolog, .token.doctype, .token.cdata {
+    color: var(--syntax-comment-colour);
+  }
+
+  .token.template-punctuation {
+    color: var(--syntax-literal-colour);
+  }
+
+  .token.template-punctuation + .token.string {
+    color: var(--syntax-literal-colour);
+  }
+
+  .token.boolean {
+    color: var(--syntax-keyword-colour);
+  }
+
+  .token.interpolation-punctuation {
+    color: var(--syntax-keyword-colour);
+  }
 }

@@ -3,7 +3,7 @@ title: Hello World
 date: "2015-05-01T22:12:03.284Z"
 description: "Hello World"
 published: true
-posttags: ["nodejs","javascript"]
+posttags: ["javascript"]
 authors: ["jmitchell"]
 hero: ./salty_egg.jpg
 ---
@@ -18,6 +18,14 @@ const foo = ({ id, name }) => {
 };
 
 foo({ id: "abc123", name: "Foo Bar Scene!" });
+
+// Some comment
+
+/**
+ * Block comment!
+ */
+
+const foo = `some string literal ${doSomething()} ${doSomethingElse(fooBar, [{a: true. "b": "apples"}])} ${doSomething()} ${doSomethingElse(fooBar, [{a: true. "b": "apples"}])} ${doSomething()} ${doSomethingElse(fooBar, [{a: true. "b": "apples"}])}`;
 ```
 
 Oh, and here's a great quote from this Wikipedia on

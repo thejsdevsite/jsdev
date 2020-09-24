@@ -108,6 +108,11 @@
   vertical-align: bottom;
 }
 
+.jsd-avatar-xl {
+  width: var(--su-12);
+  height: var(--su-12);
+}
+
 .jsd-story-secondary {
   color: var(--card-colour-secondary);
 
@@ -175,3 +180,77 @@
   padding-left: calc( var(--su-7) + var(--su-2));
 }
 
+.jsd-layout-postroll-rooter {
+  @include flexbox();
+
+  ul,ol,li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  ul, ol {
+    width: 100%;
+
+    @media (min-width: $break-tablet) {
+      @include flexRow();
+      flex-wrap: nowrap;
+      justify-content: space-between;
+    }
+  }
+
+  &.item-prev {
+    @media (min-width: $break-tablet) {
+      ul, ol {
+        justify-content: flex-start;
+      }
+    }
+
+    &.item-next {
+      @media (min-width: $break-tablet) {
+        ul, ol {
+          justify-content: space-between;
+        }
+      }
+    }
+  }
+
+  &.item-next{
+    &:not(.item-prev) {
+      @media (min-width: $break-tablet) {
+        ul, ol {
+          justify-content: flex-end;
+        }
+      }
+    }
+  }
+  
+  li {
+    @media (min-width: $break-tablet) {
+      flex-basis: auto;
+    }
+
+    a {
+      @include flexRow();
+      justify-content: center;
+      align-items: center;
+      padding: var(--su-4) var(--su-8);
+    }
+  }
+}
+
+.jsd-postroll-footer-details {
+  @include flexCol();
+}
+
+.jsd-postroll-footer-link {
+  min-width: 100%;
+
+  @media (min-width: $break-tablet) {
+    min-width: 45%;
+  }
+
+  @media (min-width: $break-medium) {
+    min-width: 35%;
+  }
+}

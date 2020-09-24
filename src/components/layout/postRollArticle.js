@@ -2,10 +2,12 @@ import React from "react";
 import { useFetchImageEffect } from "../../hooks/fetchImage";
 import { useGetAuthorDetails } from "../../hooks/getAuthorDetails";
 import { useGetPostTagDetails } from "../../hooks/getPostTagDetails";
+import useGetAuthorDetailsStatic from "../../hooks/static/getAuthorDetailsStatic";
 import PostRollArticleShimmer from "./postRollArticleShimmer";
 import PostRollRenderedArticle from "./postRollRenderedArticle";
 
 const PostRollArticle = ({ post }) => {
+  const authorDetails = useGetAuthorDetailsStatic(post.authors).first();
   const { details: author, error: authorError } = useGetAuthorDetails(post.authors);
   const { loaded: authorImgLoaded, error: authorImgError } = useFetchImageEffect(author.profilePicture.src);
   const { details: tags, error: tagsError } = useGetPostTagDetails(post.tags);

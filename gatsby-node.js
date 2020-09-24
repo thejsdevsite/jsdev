@@ -32,8 +32,12 @@ const createPages = async (graphql, actions, reporter) => {
             fields {
               slug
             }
+            timeToRead
             frontmatter {
-              date
+              date(formatString: "DD MMM, YYYY")
+              title
+              authors
+              posttags
             }
           }
         }

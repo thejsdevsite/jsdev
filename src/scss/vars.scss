@@ -27,7 +27,8 @@ $fnt-sz-l: 1.75rem;
 $fnt-sz-3xl: 1.85rem;
 $fnt-sz-2xl: 1.5rem;
 $fnt-sz-m: 1.25rem;
-$fnt-sz-s: 1rem;
+$fnt-sz-s: 1.125rem;
+$fnt-sz-base: 1rem;
 $fnt-sz-xs: 0.85rem;
 $fnt-sz-xxs: 0.75rem;
 
@@ -38,6 +39,7 @@ $def_font_weight: $fnt_wt_normal;
 
 // Colours
 $colour_white: #fff;
+$colour_beige: #f9fafa;
 $colour_black: #000;
 $colour_dark_navy_blue: #08090a;
 $colour_dark_grey_link: #202428;

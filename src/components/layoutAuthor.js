@@ -1,9 +1,14 @@
 import React from "react"
 import HeaderBar from "./layout/headerBar"
-import SidebarRecent from "./layout/sidebarRecent"
+import SidebarAuthor from "./layout/sidebarAuthor"
 import SidebarTags from "./layout/sidebarTags"
 
-const Layout = ({ sidebarTag, children }) => {
+const LayoutAuthor = ({ authorId, children }) => {
+  const post = {
+    frontmatter: {
+      authors: [authorId]
+    }
+  }
 
   return (
     <div className="site-container">
@@ -14,13 +19,13 @@ const Layout = ({ sidebarTag, children }) => {
         <div id="page-content-inner">
           <div className="jsd-layout jsd-layout-3-cols jsd-layout-3-cols-drop-right-left" id="index-container">
             <div id="sidebar-wrapper-left" className="sidebar-wrapper sidebar-wrapper-left jsd-layout-sidebar-left">
-              <SidebarTags sidebarTag={sidebarTag} />
+              <SidebarTags />
             </div>
             <main>
               {children}
             </main>
             <div id="sidebar-wrapper-right" className="sidebar-wrapper sidebar-wrapper-right jsd-layout-sidebar-right">
-              <SidebarRecent />
+              <SidebarAuthor post={post} />
             </div>
           </div>
         </div>
@@ -29,4 +34,4 @@ const Layout = ({ sidebarTag, children }) => {
   )
 }
 
-export default Layout
+export default LayoutAuthor

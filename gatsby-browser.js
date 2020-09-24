@@ -1,6 +1,6 @@
-import "typeface-montserrat"
-import "typeface-merriweather"
-import "prismjs/themes/prism.css"
+//import "typeface-montserrat"
+//import "typeface-merriweather"
+//import "prismjs/themes/prism.css"
 require("./src/scss/index.scss");
 /*import React from 'react';
 import client from './src/client/apolloClient';

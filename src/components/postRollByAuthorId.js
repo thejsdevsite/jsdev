@@ -1,13 +1,14 @@
 import React from "react";
+import useGetPostsByAuthorIdStatic from "../hooks/static/getPostsByAuthorIdStatic";
+import useGetSiteLogoSrcStatic from "../hooks/static/getSiteLogoSrcStatic";
 import PostRollArticle from "./layout/postRollArticle";
 import PostRollArticleHero from "./layout/postRollArticleHero";
-import useGetPostsStatic from "../hooks/static/getPostsStatic";
-import useGetSiteLogoSrcStatic from "../hooks/static/getSiteLogoSrcStatic";
 
-const PostRollAll = ({ offset = 0, limit = 25 }) => {
-  const posts = useGetPostsStatic();
+const PostRollByAuthorId = ({ authorId }) => {
+  const posts = useGetPostsByAuthorIdStatic(authorId);
   const logo = useGetSiteLogoSrcStatic();
-  const postList = posts.map((node, index) => {
+  const postList = posts
+  .map((node, index) => {
     const { hero, ...data } = node;
     data.hero = null;
     if (index === 0) {
@@ -19,9 +20,9 @@ const PostRollAll = ({ offset = 0, limit = 25 }) => {
 
   return (
     <div id="rendered-article-feed">
-      { postList}
+      {postList}
     </div>
   )
 };
 
-export default PostRollAll;
+export default PostRollByAuthorId;
