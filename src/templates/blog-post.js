@@ -10,15 +10,19 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
   const post = data.allMarkdownRemark.nodes[0];
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const { previous, next } = pageContext
-  
+
+  const seoProps = {
+    title: post.frontmatter.title,
+    description: post.frontmatter.description || post.excerpt,
+    twitterCreator: pageContext?.authors[0] || undefined,
+    location,
+    heroImage: post.frontmatter?.hero?.childImageSharp?.fluid?.src
+  };
+
   return (
     <LayoutPost location={location} title={siteTitle} post={post}>
-      <SEO
-        title={post.frontmatter.title}
-        description={post.frontmatter.description || post.excerpt}
-        twitterCreator={pageContext.authors[0]}
-        location={location}
-      />
+      
+      <SEO {...seoProps} />
       <main className="jsd-layout-content grid gap-4">
         <div className="jsd-article-wrapper">
           <article className="jsd-card jsd-article mb-4" id="article-show-container" data-author={post.frontmatter.authors.join(",")} data-path={post.slug} data-published="true">
