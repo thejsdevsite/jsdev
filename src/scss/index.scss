@@ -47,6 +47,7 @@
     padding-left: var(--layout-padding);
     max-width: var(--site-width);
     height: var(--header-height);
+    justify-content: space-between;
 
     a {
       @include flexbox();
@@ -58,6 +59,31 @@
         max-height: $header_logo_max_height;
         max-width: $header_logo_max_width;
         margin: 0;
+      }
+    }
+
+    a {
+      &.github {
+        @include flexRow();
+        @include borderRadius(var(--border-radius));
+        font-size: var(--fs-xs);
+        background: #24292E;
+        color: #fff;
+        font-family: var(--ff-sans-serif);
+        line-height: 1;
+        font-weight: normal;
+        text-decoration: none;
+        align-items: center;
+        height: 36px;
+        padding: 2px var(--su-3);
+
+        img {
+          max-width: 24px;
+        }
+      }
+
+      &:hover {
+        @include opacity(0.75);
       }
     }
   }
