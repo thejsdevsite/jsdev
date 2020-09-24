@@ -101,6 +101,9 @@ module.exports = {
       options: {
         uri: '/__graphql'
       }
+    },
+    {
+      resolve: `gatsby-plugin-sitemap`
     }
   ],
   mapping: {
