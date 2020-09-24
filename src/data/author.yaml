@@ -12,3 +12,10 @@
     github: "jmitchell38488"
     facebook: "justinsmitchell"
     instagram: ""
+- id: thejsdev
+  name: JS.dev
+  bio: JavaScript community website
+  profilePicture: ../../content/assets/logo.svg
+  location: Melbourne, Australia
+  social: 
+    twitter: thejsdevsite

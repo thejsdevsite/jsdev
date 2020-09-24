@@ -6,6 +6,7 @@ published: true
 publishedDate: "2020-07-29T22:12:03.284Z"
 posttags: ["javascript", "typescript", "functional", "tutorial"]
 authors: ["jmitchell"]
+primaryAuthor: "Justin Mitchell"
 hero: ./hero.jpg
 ---
 

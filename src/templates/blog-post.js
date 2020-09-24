@@ -16,6 +16,8 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
       <SEO
         title={post.frontmatter.title}
         description={post.frontmatter.description || post.excerpt}
+        twitterCreator={pageContext.authors[0]}
+        location={location}
       />
       <main className="jsd-layout-content grid gap-4">
         <div className="jsd-article-wrapper">

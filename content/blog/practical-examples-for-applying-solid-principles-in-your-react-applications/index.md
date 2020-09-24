@@ -6,6 +6,7 @@ published: true
 publishedDate: "2020-07-01T22:12:03.284Z"
 posttags: ["javascript", "react", "oop", "design"]
 authors: ["jmitchell"]
+primaryAuthor: "Justin Mitchell"
 ---
 
 In this article, we are are going to discuss what [SOLID](https://en.wikipedia.org/wiki/SOLID) principles are, and how they can be applied to your React projects, with practical examples.

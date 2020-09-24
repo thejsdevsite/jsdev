@@ -60,6 +60,7 @@ const createPages = async (graphql, actions, reporter) => {
         path: post.fields.slug,
         component: blogPost,
         context: {
+          authors: post.frontmatter.authors,
           slug: post.fields.slug,
           previous,
           next,
@@ -211,6 +212,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       title: String
       description: String
       date: Date @dateformat
+      primaryAuthor: String
     }
 
     type Fields {
