@@ -6,6 +6,7 @@ published: true
 publishedDate: "2020-08-01T22:12:03.284Z"
 posttags: ["leadership"]
 authors: ["jmitchell"]
+primaryAuthor: "Justin Mitchell"
 ---
 
 Software development is a career path that many of us take. We've all had to start somewhere, and for the vast majority of us, it's at the bottom. A few have lucked out, started their own businesses and careers, completely avoiding the need to grind away from day one.

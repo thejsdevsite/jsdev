@@ -51,6 +51,32 @@ module.exports = {
               align: "center",
               hideThread: true
             }
+          },
+          {
+            resolve: `gatsby-remark-social-cards`,
+            options: {
+              title: {
+                title: "title",
+                font: "DejaVuSansCondensed",
+                color: "black",
+                size: 32,
+                style: "bold"
+              },
+              meta: {
+                parts: [
+                  { field: "primaryAuthor" },
+                  " » ",
+                  { field: "publishedDate", format: "mmmm dS" },
+                ],
+                font: "DejaVuSansCondensed",
+                color: "black",
+                size: 16,
+                style: "bold"
+              },
+              background: "#FFF",
+              xMargin: 12,
+              yMargin: 24
+            }
           }
         ],
       },
@@ -104,7 +130,7 @@ module.exports = {
     },
     {
       resolve: `gatsby-plugin-sitemap`
-    }
+    },
   ],
   mapping: {
     "MarkdownRemark.frontmatter.author": `AuthorYaml`,

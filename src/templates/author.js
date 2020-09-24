@@ -13,7 +13,7 @@ const AuthorTemplate = ({ pageContext, data, location }) => {
 
   return (
     <LayoutAuthor location={location} title={siteTitle} authorId={author}>
-      <SEO title={`${authorDetails.first().name} - All Posts by author`} />
+      <SEO title={`${authorDetails.first().name} - All Posts by author`} location={location} twitterCreator={authorDetails.first().id} />
 
       <div className="hide show-tablet jsd-header-widget">
         <RenderSidebarAuthorDetails author={authorDetails.first()} />

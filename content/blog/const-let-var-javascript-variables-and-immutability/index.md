@@ -6,6 +6,7 @@ published: true
 publishedDate: "2020-08-01T22:12:03.284Z"
 posttags: ["javascript","webdev","beginners","codenewbie"]
 authors: ["jmitchell"]
+primaryAuthor: "Justin Mitchell"
 ---
 
 The release of ES2015 in 2015 introduced two new keywords, `let` and `const`, which are important [block-scoped](https://en.wikipedia.org/wiki/Scope_(computer_science)) variables in JavaScript. Until that point, for close to two decades, a variable was declared in JavaScript by using the `var` keyword.

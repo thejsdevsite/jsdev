@@ -9,7 +9,7 @@ const NotFoundPage = ({ data, location }) => {
 
   return (
     <Layout location={location} title={siteTitle}>
-      <SEO title="404: Page Not Found" />
+      <SEO title="404: Page Not Found" location={location} twitterCreator="thejsdev" />
       <div id="homepage-feed">
         <h3 className="ff-monospace fs-l m-0 mb-4">This page does not exist</h3>
         <p m-0 mb-4>
