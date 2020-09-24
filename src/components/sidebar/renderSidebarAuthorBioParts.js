@@ -10,7 +10,7 @@ const RenderSidebarAuthorBioParts = ({ author }) => {
         <>
           {author.employment?.position}
           <span>at</span>
-          { author.employment?.url ? (<a className="jsd-link" href={author.employment?.url} target="_blank" title={author.employment?.company} rel="noopener">{author.employment?.company}</a>) : author.employment?.company}
+          { author.employment?.url ? (<a className="jsd-link" href={author.employment?.url} target="_blank" title={author.employment?.company} rel="noreferrer">{author.employment?.company}</a>) : author.employment?.company}
         </>
       )
     })

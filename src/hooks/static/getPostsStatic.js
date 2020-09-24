@@ -12,6 +12,7 @@ export const useGetPostsStatic = (limit = 0) => {
           }
           frontmatter {
             date(formatString: "MMMM DD, YYYY")
+            publishedDate(formatString: "MMMM DD, YYYY")
             title
             authors
             posttags
@@ -35,6 +36,7 @@ export const useGetPostsStatic = (limit = 0) => {
       slug: node.fields.slug,
       authors: node.frontmatter.authors,
       date: node.frontmatter.date,
+      publishedDate: node.frontmatter.publishedDate,
       hero: node.frontmatter.hero ? node.frontmatter.hero.childImageSharp.fluid.src : null,
       tags: node.frontmatter.posttags,
       title: node.frontmatter.title

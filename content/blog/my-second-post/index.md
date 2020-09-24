@@ -2,6 +2,7 @@
 title: My Second Post!
 date: "2015-05-06T23:46:37.121Z"
 published: true
+publishedDate: "2015-05-08T23:46:37.121Z"
 posttags: ["graphql","javascript"]
 authors: ["jmitchell"]
 ---

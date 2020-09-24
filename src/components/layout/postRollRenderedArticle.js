@@ -20,7 +20,7 @@ const ArticleMeta = ({ post, author }) => (
         <Link to={author.slug} className="jsd-story-secondary fw-med">{author.name}</Link>
       </p>
       <Link to={post.slug} className="jsd-story-tertiary fs-xxs">
-        <time>{post.date}</time>
+        <time>{post.publishedDate}</time>
       </Link>
     </div>
   </div>

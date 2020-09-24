@@ -36,6 +36,7 @@ const useGetPostsByAuthorIdStatic = (authorId) => {
       slug: node.fields.slug,
       authors: node.frontmatter.authors,
       date: node.frontmatter.date,
+      publishedDate: node.frontmatter.publishedDate,
       hero: node.frontmatter.hero ? node.frontmatter.hero.childImageSharp.fluid.src : null,
       tags: node.frontmatter.posttags,
       title: node.frontmatter.title

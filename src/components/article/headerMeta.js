@@ -16,7 +16,7 @@ const HeaderMeta = ({ post, authors }) => {
         ))}
       </div>
       <div className="fs-base">
-        <span className="mr-2">{post.frontmatter.date}</span>
+        <span className="mr-2">{post.frontmatter.publishedDate}</span>
         <span className="mr-2 fw-bold">🠂</span>
         <span>{post.timeToRead} min read</span>
       </div>

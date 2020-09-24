@@ -3,6 +3,7 @@ title: Hello World
 date: "2015-05-01T22:12:03.284Z"
 description: "Hello World"
 published: true
+publishedDate: "2015-05-02T22:12:03.284Z"
 posttags: ["javascript"]
 authors: ["jmitchell"]
 hero: ./salty_egg.jpg

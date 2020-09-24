@@ -12,6 +12,7 @@ const useGetPostsByTagNameStatic = (tagName) => {
           }
           frontmatter {
             date(formatString: "MMMM DD, YYYY")
+            publishedDate(formatString: "MMMM DD, YYYY")
             title
             authors
             posttags
@@ -36,6 +37,7 @@ const useGetPostsByTagNameStatic = (tagName) => {
       slug: node.fields.slug,
       authors: node.frontmatter.authors,
       date: node.frontmatter.date,
+      publishedDate: node.frontmatter.publishedDate,
       hero: node.frontmatter.hero ? node.frontmatter.hero.childImageSharp.fluid.src : null,
       tags: node.frontmatter.posttags,
       title: node.frontmatter.title

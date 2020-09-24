@@ -40,7 +40,7 @@ const PostBrief = ({ post, title }) => {
             <span itemProp="headline">{title}</span>
           </Link>
         </h3>
-        <small>{post.frontmatter.date}</small>
+        <small>{post.frontmatter.publishedDate}</small>
         <TagList tagList={tagList}/>
         <AuthorList authorList={authorList}/>
       </header>

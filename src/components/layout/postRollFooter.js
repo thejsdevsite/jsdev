@@ -12,7 +12,7 @@ const PostRollFooter = ({ nextPost, prevPost }) => {
               <span className="mr-2">←</span>
               <span className="jsd-postroll-footer-details">
                 <span>{prevPost.frontmatter.title}</span>
-                <span>{prevPost.frontmatter.date}</span>
+                <span>{prevPost.frontmatter.publishedDate}</span>
               </span>
             </Link>
           </li>
@@ -22,7 +22,7 @@ const PostRollFooter = ({ nextPost, prevPost }) => {
             <Link className="jsd-link" to={nextPost.fields.slug} rel="next">
               <span className="mr-2 jsd-postroll-footer-details">
                 <span>{nextPost.frontmatter.title}</span>
-                <span>{nextPost.frontmatter.date}</span>
+                <span>{nextPost.frontmatter.publishedDate}</span>
               </span>
               <span>→</span>
             </Link>

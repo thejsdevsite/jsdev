@@ -12,7 +12,7 @@ const RenderSidebarTags = ({ tagMap }) => {
       </header>
       <div>
         {posts.map(post => {
-          const ariaTitle = `${post.title} - by ${post.authors.join(" and ")} - published ${post.date}`;
+          const ariaTitle = `${post.title} - by ${post.authors.join(" and ")} - published ${post.publishedDate}`;
           return <Link key={`sidebar-post-${post.id}`} to={post.slug} title={ariaTitle} aria-label={ariaTitle} className="jsd-link jsd-link-contentful">{post.title}</Link>
         })}
       </div>
