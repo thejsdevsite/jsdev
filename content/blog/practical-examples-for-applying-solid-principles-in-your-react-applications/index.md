@@ -17,7 +17,7 @@ Have you ever worked on an application, in any language, and struggled to unders
 
 You're not alone. It's not a random, rare phenomenon, found in the lush and remote wilderness of Kathmandu, growing on the side of a mountain somewhere, where a sip of the wonderful and mystical waters of the ACME inc. river will suddenly bring everything into focus.
 
-![When I design my code, I drink cool, mystical waters from Kathmandu](https://i.imgflip.com/46ss1z.jpg)
+![When I design my code, I drink cool, mystical waters from Kathmandu](./46ss1z.jpg)
 
 It may well be that the code you're working on hasn't incorporated, or been designed to take advantage of the SOLID principles. Five software development principles that can turn a bowl of meatballs and spaghetti, into delicious tortellini.
 
@@ -130,7 +130,7 @@ The major benefit we gain from following the single-use principle is the separat
 
 #### O - Open-closed principle
 Software entities, such as classes and functions, should be open for extension, but closed for modification.
-![Software entities, such as classes and functions, should be open for extension, but closed for modification.](https://i.imgflip.com/46sutd.jpg)
+![Software entities, such as classes and functions, should be open for extension, but closed for modification.](./46sutd.jpg)
 
 Yeah, this one's not that clear to understand, but if you consider it to be more of a generalisation than a rule, it begins to make more sense. Keeping in mind that this principle originated in the 90s, it's less applicable today than it was two decades ago.
 
@@ -157,7 +157,7 @@ new Quad().print();
 A class or function that is provided as part of a library package, is considered closed, because it should not be modified, and in many OOP languages, cannot be modified because it has been compiled. This is less applicable to JavaScript because of its open nature, although code compiled by bundlers, especially obfuscated code, should be considered closed.
 
 #### L - Liskov substitution principle
-![Liskov substitution principle](https://i.imgflip.com/46t27g.jpg)
+![Liskov substitution principle](./46t27g.jpg)
 This principle refers to the idea of designing by contract, which was a big design principle in the 1980s, 1990s and early 2000s, when languages such as C++ and Java exploded on the development scene, promoting features such as Generics and Templates, Interfaces and Classes.
 
 This principle is more specific than just features of a language, and it's arguably one of the most important design principles that you can use. Designing by contract, is by a means where software components within an application should be replaceable with instances of subtypes, without altering the correctness of the program.
@@ -260,10 +260,10 @@ const ShapeRenderer: React.FC<ShapeRendererProps> = ({ shape }) => shape && shap
 
 Using TypeScript, we can easily swap objects and functions that share the same _contract_, without breaking the functionality of the application.
 
-[> codepen example](https://codepen.io/jmitchell38488/pen/bGEYNoZ)
+https://codepen.io/jmitchell38488/pen/bGEYNoZ
 
 #### I - Interface segregation principle
-![Interface segregation principle](https://i.imgflip.com/46t2re.jpg)
+![Interface segregation principle](./46t2re.jpg)
 This principle is best described as taking the granular approach to defining the make up of your application, in conjunction with the Liskov substitution principle, but do it so that you don't have one massive general purpose interface.
 
 The `Shape` example from the Liskov principle is great, because you can extend the functionality with subtypes, while maintaining the basic `Shape` functionality, therefore interoperability not just in the application, but in a library if you were to ever share code.
@@ -291,7 +291,7 @@ interface Circle extends Shape {
 ```
 
 #### D - Dependency inversion principle
-![Dependency inversion principle](https://i.imgflip.com/46t2wv.jpg)
+![Dependency inversion principle](./46t2wv.jpg)
 Dependency inversion is best described as a method by which the application should depend on interface, or abstractions, rather than specific instances of classes or functions. [The wikipedia article on dependency injection](https://en.wikipedia.org/wiki/Dependency_inversion_principle) provides several great examples of what it is and how to incorporate it into your application.
 
 In react this is more difficult to achieve in the specific components, because you will end up forming composite components, that take n-components as input, to generate a single output - otherwise known as a Higher-order Component (HoC). 
