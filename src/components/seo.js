@@ -11,7 +11,7 @@ import { Helmet } from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 import useGetAuthorDetailsStatic from "../hooks/static/getAuthorDetailsStatic"
 
-const SEO = ({ description, lang, meta, title, twitterCreator, location, heroImage }) => {
+const SEO = ({ description, lang, meta, title, twitterCreator, location, heroImage, twitterDescription }) => {
   const authorDetails = useGetAuthorDetailsStatic(twitterCreator).first();
   const { site } = useStaticQuery(
     graphql`
@@ -56,7 +56,7 @@ const SEO = ({ description, lang, meta, title, twitterCreator, location, heroIma
     },
     {
       name: `twitter:description`,
-      content: metaDescription,
+      content: twitterDescription || metaDescription,
     }
   ];
 
@@ -68,11 +68,11 @@ const SEO = ({ description, lang, meta, title, twitterCreator, location, heroIma
       },
       {
         name: `twitter:creator`,
-        content: authorDetails.name || ``,
+        content: `@${authorDetails.social?.twitter}`,
       },
       {
         name: `twitter:site`,
-        content: `@${authorDetails.social?.twitter}` || `@thejsdevsite`
+        content: `@thejsdevsite`
       }
     )
   }

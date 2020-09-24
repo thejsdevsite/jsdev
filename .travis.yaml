@@ -1,0 +1,11 @@
+language: node_js
+node_js:
+  - 12.13.0
+before_script:
+  - npm install -g gatsby
+deploy:
+  provider: script
+  script: npm i && npm run deploy
+  skip_cleanup: true
+  on:
+    branch: master
