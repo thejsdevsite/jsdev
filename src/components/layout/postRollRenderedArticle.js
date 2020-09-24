@@ -27,7 +27,7 @@ const ArticleMeta = ({ post, author }) => (
 );
 
 const ArticleTitle = ({ post }) => (
-  <h2 className="jsd-story-title m-0 mb-1">
+  <h2 className="jsd-story-title m-0 mb-1 l:fs-l">
     <Link to={post.slug} id={`article-link-${post.id}`}>
       <span>{post.title}</span>
     </Link>

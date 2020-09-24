@@ -14,7 +14,7 @@ const PostTitleHeader = ({ post }) => {
     <header className="jsd-article-header" id="main-title">
       <PostHero post={post}/>
       <div className="jsd-article-header-meta">
-        <h1 className="ff-monospace fs-3xl s:fs-4xl l:fs-5xl s:fw-heavy fw-heavy lh-tight mb-4">{title}</h1>
+        <h1 className="ff-monospace fs-3xl s:fs-4xl l:fs-4xl s:fw-heavy fw-heavy lh-tighter mb-4 l:ls-n3 ls-n1">{title}</h1>
         <HeaderTags tags={tagsMap.all()} />
         <HeaderMeta post={post} authors={authorsMap.all()} />
       </div>

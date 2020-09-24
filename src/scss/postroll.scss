@@ -12,7 +12,7 @@
   font-size: var(--fs-base);
 
   --story-padding: var(--su-3) var(--su-2) var(--su-2);
-  --title-font-size: var(--fs-xl);
+  --title-font-size: var(--fs-m);
 
   @media (min-width: $break-small) {
     border-radius: var(--border-radius);
@@ -21,7 +21,6 @@
 
   @media (min-width: $break-tablet) {
     --story-padding: var(--su-4);
-    --title-font-size: var(--fs-2xl);
   }
 }
 
@@ -248,9 +247,11 @@
 
   @media (min-width: $break-tablet) {
     min-width: 45%;
+    width: 45%;
   }
 
   @media (min-width: $break-medium) {
     min-width: 35%;
+    width: 35%;
   }
 }

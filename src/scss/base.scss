@@ -54,6 +54,7 @@
   --fs-5xl: var(--su-10);
 
   --lh-tight: 1.25;
+  --lh-tighter: 1.125;
 
   // Colours
   --body-bg: #{$colour_body_grey};
@@ -124,15 +125,86 @@
 .fs-5xl { font-size: var(--fs-5xl); }
 .fs-base { font-size: var(--fs-base); }
 
+
+.s\:fs-5xl {
+  @media (min-width: $break-tablet) {
+    font-size: var(--fs-5xl) !important;
+  }
+}
 .s\:fs-4xl {
   @media (min-width: $break-tablet) {
     font-size: var(--fs-4xl) !important;
+  }
+}
+.s\:fs-3xl {
+  @media (min-width: $break-tablet) {
+    font-size: var(--fs-3xl) !important;
+  }
+}
+.s\:fs-2xl {
+  @media (min-width: $break-tablet) {
+    font-size: var(--fs-2xl) !important;
+  }
+}
+.s\:fs-l {
+  @media (min-width: $break-tablet) {
+    font-size: var(--fs-l) !important;
+  }
+}
+.s\:fs-m {
+  @media (min-width: $break-tablet) {
+    font-size: var(--fs-m) !important;
+  }
+}
+.s\:fs-s {
+  @media (min-width: $break-tablet) {
+    font-size: var(--fs-s) !important;
+  }
+}
+.s\:fs-xs {
+  @media (min-width: $break-tablet) {
+    font-size: var(--fs-xs) !important;
   }
 }
 
 .l\:fs-5xl {
   @media (min-width: $break-medium) {
     font-size: var(--fs-5xl) !important;
+  }
+}
+.l\:fs-4xl {
+  @media (min-width: $break-medium) {
+    font-size: var(--fs-4xl) !important;
+  }
+}
+.l\:fs-3xl {
+  @media (min-width: $break-medium) {
+    font-size: var(--fs-3xl) !important;
+  }
+}
+.l\:fs-2xl {
+  @media (min-width: $break-medium) {
+    font-size: var(--fs-2xl) !important;
+  }
+}
+.l\:fs-l {
+  @media (min-width: $break-medium) {
+    font-size: var(--fs-l) !important;
+  }
+}
+.l\:fs-m {
+  @media (min-width: $break-medium) {
+    font-size: var(--fs-m) !important;
+  }
+}
+.l\:fs-s {
+  @media (min-width: $break-medium) {
+    font-size: var(--fs-s) !important;
+  }
+}
+.l\:fs-xs {
+  @media (min-width: $break-medium) {
+    font-size: var(--fs-xs) !important;
   }
 }
 
@@ -150,6 +222,56 @@
 .ff-sans-serif { font-family: var(--ff-sans-serif); }
 .ff-monospace { font-family: var(--ff-monospace); }
 .ff-serif { font-family: var(--ff-serif); }
+
+.lh-tight { line-height: var(--lh-tight) !important; }
+.lh-tighter { line-height: var(--lh-tighter) !important; }
+
+.ls-n1 { letter-spacing: -1px !important ;}
+.ls-n2 { letter-spacing: -2px !important ;}
+.ls-n3 { letter-spacing: -3px !important ;}
+.ls-n4 { letter-spacing: -4px !important ;}
+
+.l\:ls-n1 { 
+  @media (min-width: $break-medium) { 
+    letter-spacing: -1px !important ;
+  } 
+}
+.l\:ls-n2 { 
+  @media (min-width: $break-medium) { 
+    letter-spacing: -2px !important ;
+  } 
+}
+.l\:ls-n3 { 
+  @media (min-width: $break-medium) { 
+    letter-spacing: -3px !important ;
+  } 
+}
+.l\:ls-n4 { 
+  @media (min-width: $break-medium) { 
+    letter-spacing: -4px !important ;
+  } 
+}
+
+.s\:ls-n1 { 
+  @media (min-width: $break-tablet) { 
+    letter-spacing: -1px !important ;
+  } 
+}
+.s\:ls-n2 { 
+  @media (min-width: $break-tablet) { 
+    letter-spacing: -2px !important ;
+  } 
+}
+.s\:ls-n3 { 
+  @media (min-width: $break-tablet) { 
+    letter-spacing: -3px !important ;
+  } 
+}
+.s\:ls-n4 { 
+  @media (min-width: $break-tablet) { 
+    letter-spacing: -4px !important ;
+  } 
+}
 
 .left {
   text-align: left;

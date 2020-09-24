@@ -1,14 +1,15 @@
 {
-  "name": "gatsby-starter-blog",
+  "name": "jsdev-blog",
   "private": true,
-  "description": "A starter for a blog powered by Gatsby and Markdown",
-  "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "description": "JS.dev Blog",
+  "version": "1.0.0",
+  "author": "Justin Mitchell <jmitchell38488@gmail.com>",
   "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://github.com/jmitchell38488/jsdev/issues"
   },
   "dependencies": {
     "@apollo/client": "^3.2.0",
+    "@weknow/gatsby-remark-twitter": "^0.2.3",
     "gatsby": "^2.24.61",
     "gatsby-image": "^2.4.19",
     "gatsby-plugin-apollo": "^3.0.1",
@@ -43,15 +44,15 @@
   "devDependencies": {
     "prettier": "2.1.1"
   },
-  "homepage": "https://github.com/gatsbyjs/gatsby-starter-blog#readme",
+  "homepage": "https://github.com/jmitchell38488/jsdev/issues#readme",
   "keywords": [
     "gatsby"
   ],
-  "license": "0BSD",
+  "license": "BSD",
   "main": "n/a",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gatsbyjs/gatsby-starter-blog.git"
+    "url": "git+https://github.com/jmitchell38488/jsdev/issues"
   },
   "scripts": {
     "build": "gatsby build",
@@ -60,6 +61,6 @@
     "start": "npm run develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+    "test": "exit 1"
   }
 }

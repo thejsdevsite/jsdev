@@ -139,7 +139,6 @@
 
   header {
     position: relative;
-    font-size: 0.9em;
     font-weight: var(--fw-heavy);
     padding: 8px 0;
     font-family: var(--ff-monospace);
@@ -147,9 +146,6 @@
     margin: var(--m-0);
 
     h2, h3 {
-      font-size: inherit;
-      font-family: inherit;
-      font-weight: inherit;
       margin: 0 0 var(--su-2) 0;
     }
   }
@@ -350,37 +346,65 @@
 }
 
 .text-styles {
-  font-size: var(--article-font-size);
+  --text-style-fs: var(--su-4);
+  font-size: var(--text-style-fs);
   font-family: var(--content-font-family);
 
+  @media (min-width: $break-small) {
+    --text-style-fs: var(--fs-s);
+  }
+
   h1 {
-    font-size: var(--su-8);
+    font-size: var(--su-6);
     font-weight: var(--fw-med);
+    @media (min-width: $break-small) {
+      font-size: var(--su-8);
+      font-weight: var(--fw-med);
+    }
   }
 
   h2 {
-    font-size: var(--su-7);
+    font-size: var(--su-6);
     font-weight: var(--fw-bold);
+    @media (min-width: $break-small) {
+      font-size: var(--su-7);
+      font-weight: var(--fw-med);
+    }
   }
 
   h3 {
-    font-size: var(--su-7);
+    font-size: var(--su-5);
     font-weight: var(--fw-med);
+    @media (min-width: $break-small) {
+      font-size: var(--su-7);
+    }
   }
 
   h4 {
-    font-size: var(--su-6);
+    font-size: var(--su-5);
     font-weight: var(--fw-med);
+    @media (min-width: $break-small) {
+      font-size: var(--su-6);
+      font-weight: var(--fw-med);
+    }
   }
 
   h5 {
-    font-size: var(--su-5);
+    font-size: var(--su-4);
     font-weight: var(--fw-bold);
+    @media (min-width: $break-small) {
+      font-size: var(--su-5);
+      font-weight: var(--fw-bold);
+    }
   }
 
   h6 {
-    font-size: var(--su-5);
-    font-weight: var(--fw-med);
+    font-size: var(--su-4);
+    font-weight: var(--fw-bold);
+    @media (min-width: $break-small) {
+      font-size: var(--su-5);
+      font-weight: var(--fw-med);
+    }
   }
 
   a {
@@ -391,6 +415,10 @@
       color: var(--link-colour);
       text-decoration: underline;
     }
+  }
+
+  strong {
+    font-weight: var(--fw-heavy);
   }
 }
 

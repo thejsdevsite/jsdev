@@ -9,6 +9,7 @@
   --syntax-name-colour: #7ed07e;
   --syntax-string-colour: #f2ca27;
   --syntax-function-colour: #DD4A68;
+  --syntax-inline-colour: #d81111;
 }
 
 .gatsby-highlight {
@@ -18,7 +19,7 @@
 
   background: var(--syntax-background-colour);
   color: var(--syntax-text-colour);
-  padding: var(--su-2);
+  padding: var(--su-1);
   margin: 0;
   white-space: pre;
   overflow-x: auto;
@@ -27,17 +28,22 @@
 
   @media (min-width: $break-small) {
     padding: var(--su-3) var(--su-6);
+    padding: var(--su-2);
   }
 
   pre {
     background: var(--syntax-background-colour);
     color: var(--syntax-text-colour);
-    padding: var(--su-2);
+    padding: var(--su-1);
     margin: 0;
     white-space: pre;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     overflow-wrap: initial;
+
+    @media (min-width: $break-small) {
+      padding: var(--su-2);
+    }
 
     code {
       background: rgba(0,0,0,0.15);
@@ -45,6 +51,19 @@
       border-radius: var(--radius);
       max-width: 100%;
       padding: 0.1em 0.25em;
+      font-size: var(--fs-xs);
+
+      @media (min-width: $break-small) {
+        font-size: var(--fs-s);
+      }
+
+      * {
+        @media (min-width: $break-small) {
+          font-size: var(--fs-s);
+        }
+
+        font-size: var(--fs-xs);
+      }
     }
   }
 
@@ -97,4 +116,21 @@
   .token.interpolation-punctuation {
     color: var(--syntax-keyword-colour);
   }
+
+  .token.tag {
+    color: var(--syntax-declaration-colour);
+
+    .token.punctuation {
+      color: var(--syntax-text-colour);
+    }
+  }
+}
+
+code.language-text {
+  @include borderRadius(3px);
+  font-family: var(--ff-monospace);
+  background: var(--base-10);
+  color: var(--syntax-inline-colour);
+  font-size: calc(var(--text-style-fs) * 0.9);
+  padding: var(--su-1);
 }

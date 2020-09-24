@@ -11,7 +11,7 @@ const SidebarTagDetails = ({ tagDetails }) => {
   return (
     <div className="jsd-sidebar-widget">
       <header>
-        <h3 className="fs-s fw-heavy m-0 ff-monospace">#{tagDetails.id}</h3>
+        <h3 className="m-0 fs-m fw-heavy ff-monospace">#{tagDetails.id}</h3>
       </header>
       <div className="widget-body">
         <p className="fs-xs ff-monospace" dangerouslySetInnerHTML={{ __html: tagDetails.description.replace(/\\n/g, "<br/>") }} />
@@ -34,7 +34,7 @@ const SidebarAllTags = ({ tags }) => {
         <div id="sidebar-tags">
           {tags.map(node => (
             <div key={node.id} className="sidebar-nav-element">
-              <Link to={node.slug} className="fs-s ff-sans-serif jsd-link jsd-link-block" title={node.title} aria-label={node.title}>#{node.tag}</Link>
+              <Link to={node.slug} className="fs-xs ff-monospace jsd-link jsd-link-block" title={node.title} aria-label={node.title}>#{node.tag}</Link>
             </div>
           ))}
         </div>

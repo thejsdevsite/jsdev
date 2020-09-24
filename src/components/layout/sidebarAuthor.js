@@ -4,7 +4,6 @@ import RenderSidebarAuthorDetails from "../sidebar/renderSidebarAuthorDetails";
 
 const SidebarAuthor = ({ post }) => {
   const authors = useGetAuthorDetailsStatic(post.frontmatter.authors);
-  console.log(authors, post);
   const authorList = authors
     .all()
     .map(node => <RenderSidebarAuthorDetails key={`sidebar-author-${node.id}`} author={node} />)

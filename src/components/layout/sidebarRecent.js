@@ -11,7 +11,6 @@ const SidebarRecent = () => {
   const postTagMap = MapPostsToTags(posts);
   const tagDetails = useGetPostTagDetailsStatic(postTagMap.keys());
   const tagsPosts = MapTagDetailstoPostsTagsMap(postTagMap, tagDetails);
-  console.log(tagsPosts.toArray());
 
   const list = tagsPosts
     .toArray()
