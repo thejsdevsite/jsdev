@@ -64,6 +64,6 @@
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "test": "exit 1",
-    "deploy": "gatsby build && gh-pages -d public"
+    "deploy": "gatsby build && gh-pages -d public master"
   }
 }
