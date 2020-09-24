@@ -16,12 +16,12 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
     description: post.frontmatter.description || post.excerpt,
     twitterCreator: pageContext?.authors[0] || undefined,
     location,
-    heroImage: post.frontmatter?.hero?.childImageSharp?.fluid?.src
+    heroImage: post.frontmatter?.hero?.childImageSharp?.fluid?.src,
+    twitterDescription: post.excerpt
   };
 
   return (
     <LayoutPost location={location} title={siteTitle} post={post}>
-      
       <SEO {...seoProps} />
       <main className="jsd-layout-content grid gap-4">
         <div className="jsd-article-wrapper">
@@ -53,6 +53,7 @@ export const pageQuery = graphql`
           slug
         }
         html
+        excerpt(pruneLength: 125, format: PLAIN)
         frontmatter {
           date(formatString: "MMMM DD, YYYY")
           publishedDate(formatString: "MMMM DD, YYYY")
