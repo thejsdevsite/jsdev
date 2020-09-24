@@ -80,7 +80,7 @@ const SEO = ({ description, lang, meta, title, twitterCreator, location }) => {
   if (location) {
     metaList.push({
       name: `twitter:image`,
-      content: `${site.siteMetadata.siteUrl}${location.pathname}twitter-card.png`
+      content: `${site.siteMetadata.siteUrl}${location.pathname}/twitter-card.png`
     })
   }
 
