@@ -5,7 +5,8 @@ date: "2020-09-26T01:45:00Z"
 description: "Side effects in your code, are they good, or are they bad and where should I use them? We take a look at when to use them, and when to avoid them"
 published: true
 publishedDate: "2020-09-26T04:30:00Z"
-posttags: ["javascript"]
+updatedDate: "2020-09-26T04:40:00Z"
+posttags: ["javascript", "design", "functional"]
 authors: ["jmitchell"]
 primaryAuthor: "Justin Mitchell"
 hero: ./hero.jpg
