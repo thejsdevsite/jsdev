@@ -5,6 +5,9 @@ import LayoutPost from "../components/layoutPost"
 import PostRollFooter from "../components/layout/postRollFooter"
 import PostTitleHeader from "../components/article/postTitleHeader"
 import RenderArticleMain from "../components/article/renderMainArticle"
+import { RenderComments } from "../components/article/renderComments";
+import { RenderAuthorDetails } from "../components/article/renderAuthorDetails";
+import useGetAuthorDetailsStatic from "../hooks/static/getAuthorDetailsStatic";
 
 const BlogPostTemplate = ({ data, pageContext, location }) => {
   const post = data.allMarkdownRemark.nodes[0];
@@ -20,6 +23,8 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
     twitterDescription: post.excerpt
   };
 
+  const authorDetails = useGetAuthorDetailsStatic(post.frontmatter.authors);
+
   return (
     <LayoutPost location={location} title={siteTitle} post={post}>
       <SEO {...seoProps} />
@@ -29,6 +34,8 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
             <PostTitleHeader post={post} />
             <RenderArticleMain post={post} />
           </article>
+          <RenderAuthorDetails post={post} authors={authorDetails.all()}/>
+          <RenderComments/>
         </div>
         <PostRollFooter nextPost={next} prevPost={previous} />
       </main>

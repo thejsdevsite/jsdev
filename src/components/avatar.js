@@ -11,7 +11,7 @@ const Avatar = ({ name, src, className = "" }) => {
   }
   return (
     <span className={strClass}>
-      <img className="jsd-avatar-image" src={src} alt={name} title={name} loading="lazy" />
+      <img className="jsd-avatar-image jsd-article-cover-image" src={src} alt={name} title={name} loading="lazy" />
     </span>
   )
 }

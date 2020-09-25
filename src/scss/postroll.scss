@@ -112,6 +112,11 @@
   height: var(--su-12);
 }
 
+.jsd-avatar-2xl {
+  width: var(--su-16);
+  height: var(--su-16);
+}
+
 .jsd-story-secondary {
   color: var(--card-colour-secondary);
 
@@ -223,7 +228,7 @@
       }
     }
   }
-  
+
   li {
     @media (min-width: $break-tablet) {
       flex-basis: auto;

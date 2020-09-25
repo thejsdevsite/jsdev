@@ -15,6 +15,10 @@
   --su-10: 2.5rem;
   --su-11: 2.75rem;
   --su-12: 3rem;
+  --su-13: 3.25rem;
+  --su-14: 3.5rem;
+  --su-15: 3.75rem;
+  --su-16: 4rem;
 
   --mb-0: var(--su-0) !important;
   --mb-1: var(--su-1) !important;
@@ -125,7 +129,6 @@
 .fs-5xl { font-size: var(--fs-5xl); }
 .fs-base { font-size: var(--fs-base); }
 
-
 .s\:fs-5xl {
   @media (min-width: $break-tablet) {
     font-size: var(--fs-5xl) !important;
@@ -146,6 +149,11 @@
     font-size: var(--fs-2xl) !important;
   }
 }
+.s\:fs-xl {
+  @media (min-width: $break-tablet) {
+    font-size: var(--fs-xl) !important;
+  }
+}
 .s\:fs-l {
   @media (min-width: $break-tablet) {
     font-size: var(--fs-l) !important;
@@ -163,6 +171,52 @@
 }
 .s\:fs-xs {
   @media (min-width: $break-tablet) {
+    font-size: var(--fs-xs) !important;
+  }
+}
+
+.m\:fs-5xl {
+  @media (min-width: $break-medium) {
+    font-size: var(--fs-5xl) !important;
+  }
+}
+.m\:fs-4xl {
+  @media (min-width: $break-medium) {
+    font-size: var(--fs-4xl) !important;
+  }
+}
+.m\:fs-3xl {
+  @media (min-width: $break-medium) {
+    font-size: var(--fs-3xl) !important;
+  }
+}
+.m\:fs-2xl {
+  @media (min-width: $break-medium) {
+    font-size: var(--fs-2xl) !important;
+  }
+}
+.m\:fs-xl {
+  @media (min-width: $break-medium) {
+    font-size: var(--fs-xl) !important;
+  }
+}
+.m\:fs-l {
+  @media (min-width: $break-medium) {
+    font-size: var(--fs-l) !important;
+  }
+}
+.m\:fs-m {
+  @media (min-width: $break-medium) {
+    font-size: var(--fs-m) !important;
+  }
+}
+.m\:fs-s {
+  @media (min-width: $break-medium) {
+    font-size: var(--fs-s) !important;
+  }
+}
+.m\:fs-xs {
+  @media (min-width: $break-medium) {
     font-size: var(--fs-xs) !important;
   }
 }
