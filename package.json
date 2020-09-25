@@ -69,6 +69,8 @@
     "test": "exit 0",
     "deploy:local": "gatsby build && gh-pages -d public master",
     "deploy": "gh-pages -d public master -r https://$GH_TOKEN@github.com/$GH_ORG/$GH_REPO.git",
-    "deploy:ci": "npm run build && npm run deploy"
+    "deploy:ci": "npm run build && npm run deploy",
+    "preversion": "npm test",
+    "postversion": "git push && git push --tags && gatsby clean"
   }
 }
