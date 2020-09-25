@@ -1,4 +1,285 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[JS.dev]]></title><description><![CDATA[An open and transparent JavaScript development community and inclusive network.]]></description><link>https://thejs.dev</link><generator>GatsbyJS</generator><lastBuildDate>Fri, 25 Sep 2020 15:42:56 GMT</lastBuildDate><item><title><![CDATA[What is hoisting and how it works in JavaScript]]></title><description><![CDATA[The famed and often confusing term, certainly for any JavaScript developer, and it leaves many scratching their heads; what exactly is…]]></description><link>https://thejs.dev/jmitchell/what-is-hoisting-and-how-it-works-in-javascript-e1e</link><guid isPermaLink="false">https://thejs.dev/jmitchell/what-is-hoisting-and-how-it-works-in-javascript-e1e</guid><pubDate>Fri, 25 Sep 2020 17:56:00 GMT</pubDate><content:encoded>&lt;p&gt;The famed and often confusing term, certainly for any JavaScript developer, and it leaves many scratching their heads; what exactly is hoisting?&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[JS.dev]]></title><description><![CDATA[An open and transparent JavaScript development community and inclusive network.]]></description><link>https://thejs.dev</link><generator>GatsbyJS</generator><lastBuildDate>Fri, 25 Sep 2020 18:41:33 GMT</lastBuildDate><item><title><![CDATA[What are side effects, and what you can do about them]]></title><description><![CDATA[What are side effects? It’s one of those questions that gets frequently asked on Stack Overflow, around the
+water cooler and in interviews…]]></description><link>https://thejs.dev/jmitchell/what-are-side-effects-and-what-you-can-do-about-them-jws</link><guid isPermaLink="false">https://thejs.dev/jmitchell/what-are-side-effects-and-what-you-can-do-about-them-jws</guid><pubDate>Sat, 26 Sep 2020 01:45:00 GMT</pubDate><content:encoded>&lt;p&gt;What are side effects? It’s one of those questions that gets frequently asked on Stack Overflow, around the
+water cooler and in interviews, but what does it mean? How do you know if your code or function has a side effect? &lt;/p&gt;
+&lt;p&gt;You may have even come across the functional programming afficinado, who has claimed that no side effect code will
+save the day, and it’s what functional programming is the bees knees for. I’ll let you in on a little known secret -
+object-oriented programming can also be developed without side effects; the side effects advice applies equally to both
+paradigms.&lt;/p&gt;
+&lt;p&gt;Functional programming has become hot topic in the JavaScript world, with large code bases making heavy use of
+declarative paradigm ideas, while practitioners have campaigned for wider adoption.&lt;/p&gt;
+&lt;p&gt;Functional programming is the process of building applications, composing it primarily of pure functions, avoiding
+shared state, mutations on data and side effects. It is &lt;a href=&quot;https://en.wikipedia.org/wiki/Declarative_programming&quot;&gt;declarative&lt;/a&gt; rather than
+&lt;a href=&quot;https://en.wikipedia.org/wiki/Imperative_programming&quot;&gt;imperative&lt;/a&gt;, and application state flows from one function to the next.&lt;/p&gt;
+&lt;h3&gt;tl;dr&lt;/h3&gt;
+&lt;p&gt;Functional programming goes someway towards reducing the impact of side effects in code that follows an imperative
+paradigm. Side effects are not only limited to state manipulation, interacting with the I/O, database, log system,
+APIs and anything else that can be controlled, has a side effect.&lt;/p&gt;
+&lt;p&gt;Some side effects are beneficial, and desired, such as the &lt;code class=&quot;language-text&quot;&gt;setTimeout()&lt;/code&gt; function, equivalent to &lt;code class=&quot;language-text&quot;&gt;sleep()&lt;/code&gt; and &lt;code class=&quot;language-text&quot;&gt;wait()&lt;/code&gt;
+in multi-threaded applications. Side effects aren’t a bad thing, but when hidden, or not otherwise obvious what’s
+happening, they can be dangerous.&lt;/p&gt;
+&lt;p&gt;Functional programming is not the panacea, but it is a good option, and should be combined with good application design
+and development practices.&lt;/p&gt;
+&lt;h3&gt;Breaking it down&lt;/h3&gt;
+&lt;p&gt;A side effect is the modification of state through the invocation of a function or expression. In order for a
+function or expression to have a side effect, the state it modifies should be out of its local scope. Such as
+passing an object by reference through functions to be mutated and performing I/O operations.&lt;/p&gt;
+&lt;p&gt;The presence of side effects in code is neither a good or bad thing. They are inevitable in some cases, such as when
+working with languages that follow the imperative programming paradigm, or when mutating state through necessity.&lt;/p&gt;
+&lt;p&gt;In functional programming, functions are often designed to avoid side effects, with the result of most function calls
+being a derived value from the input parameters. The lack of side effects makes it easier to do formal verifications,
+and tends to lean towards an easier method of testing.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/8e6c3596e269e780e30bd7cbe7dd8297/50383/hero.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 39.86486486486486%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAIAAAB2/0i6AAAACXBIWXMAAAsSAAALEgHS3X78AAABSklEQVQY002RW2+CQBSE9///Gw1B8VoEBDVKlCBCAS31EqMGRKvGmNCv+NLztOfszJzZWTGfz33f9zzPcZzRaCRJUqPRuFwu2+220+l8lNVqtUzTtCyrWq1WKpVarSbLMnMRx/HXv1osFrZtz2YzRHVd73a7vV5PVdXpdDqZTJrNZr/fb7fbmqYBE+i9tZMkgUDLEiwsl8vBYACCYZ7nz+cTL67rjsdjhIbDIU7Fd1lAwzDEPwgu4HM4n89RFLEQO7Sr1Qoaukw4n06nP/Ltdns8HlmWHY/HoiiYsGG3212vV+ygiMRms2E/ACa8jha84O6zLBxCIDlU34ogmNCCxkWapuv1GoO0OGWNQIkT2SDPlKhwBed+v+/3e5hkHgQBTPgovuM8HA6v10vwQiLhD0iCDAzDqNfr2Ib2UxarMMwTgOGLRBVFIQXmv3xKloQi+D2oAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;side effect functions everywhere&quot;
+        title=&quot;side effect functions everywhere&quot;
+        src=&quot;/static/8e6c3596e269e780e30bd7cbe7dd8297/fcda8/hero.png&quot;
+        srcset=&quot;/static/8e6c3596e269e780e30bd7cbe7dd8297/12f09/hero.png 148w,
+/static/8e6c3596e269e780e30bd7cbe7dd8297/e4a3f/hero.png 295w,
+/static/8e6c3596e269e780e30bd7cbe7dd8297/fcda8/hero.png 590w,
+/static/8e6c3596e269e780e30bd7cbe7dd8297/50383/hero.png 740w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h3&gt;Shared state&lt;/h3&gt;
+&lt;p&gt;A shared state is any kind of shared state, an object, variable or memory space, that exists in a shared scope, such
+as closures, classes, functions and even global scopes, or as the input property being passed through functions.&lt;/p&gt;
+&lt;p&gt;The problem with shared state is by virtue its shared nature; you need to know the history of the object, shared
+events and other potential points of mutation and interaction.&lt;/p&gt;
+&lt;p&gt;A common side effect of shared state are race conditions. For example, imagine you have a &lt;code class=&quot;language-text&quot;&gt;User&lt;/code&gt; object, with a
+function &lt;code class=&quot;language-text&quot;&gt;saveUser()&lt;/code&gt;, which makes a request to an API. While that process is happening, the user modifies their
+profile and saves their data again, thus calling &lt;code class=&quot;language-text&quot;&gt;saveUser()&lt;/code&gt; a second time. Unfortunately for the user, the second
+request was received, processed, and their record updated before the first one completed.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/cb41b0136f3d11c462b9998daa42e8e3/eea4a/racecondition.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 56.08108108108109%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAALABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAQFAv/EABUBAQEAAAAAAAAAAAAAAAAAAAID/9oADAMBAAIQAxAAAAGspURNUTYb/wD/xAAaEAACAgMAAAAAAAAAAAAAAAABAgADEBET/9oACAEBAAEFAuccasxY7B2Yk//EABcRAAMBAAAAAAAAAAAAAAAAAAACEQH/2gAIAQMBAT8BRtpT/8QAFREBAQAAAAAAAAAAAAAAAAAAARD/2gAIAQIBAT8BZ//EABkQAAIDAQAAAAAAAAAAAAAAAAABEBEhMv/aAAgBAQAGPwLtm25dM0//xAAYEAEBAQEBAAAAAAAAAAAAAAABABEhMf/aAAgBAQABPyFas7hxHsmWRNgW2W8v/9oADAMBAAIAAwAAABCI3//EABURAQEAAAAAAAAAAAAAAAAAAAEA/9oACAEDAQE/EEQSX//EABYRAAMAAAAAAAAAAAAAAAAAAAABEf/aAAgBAgEBPxBFCH//xAAbEAEBAQEAAwEAAAAAAAAAAAABEQAxQVFhof/aAAgBAQABPxBKCrZefuKXRI7Z5yKIj9NHdwfDIejG6xAw5v/Z&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;race condition in multi-threaded applications&quot;
+        title=&quot;race condition in multi-threaded applications&quot;
+        src=&quot;/static/cb41b0136f3d11c462b9998daa42e8e3/1c72d/racecondition.jpg&quot;
+        srcset=&quot;/static/cb41b0136f3d11c462b9998daa42e8e3/a80bd/racecondition.jpg 148w,
+/static/cb41b0136f3d11c462b9998daa42e8e3/1c91a/racecondition.jpg 295w,
+/static/cb41b0136f3d11c462b9998daa42e8e3/1c72d/racecondition.jpg 590w,
+/static/cb41b0136f3d11c462b9998daa42e8e3/a8a14/racecondition.jpg 885w,
+/static/cb41b0136f3d11c462b9998daa42e8e3/fbd2c/racecondition.jpg 1180w,
+/static/cb41b0136f3d11c462b9998daa42e8e3/eea4a/racecondition.jpg 1280w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;When working with shared state, there are strategies to mitigate collisions, races and deadlocks.&lt;/p&gt;
+&lt;p&gt;Another problem with shared state is the cascading function problem, in which the order and even timing of function
+calls has to be changed as the state changes. This is typically a side effect of changing the order of functions
+calls, which causes a cascade of errors.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; state &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  myVal&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token function-variable function&quot;&gt;doSomething&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; state&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;myVal &lt;span class=&quot;token operator&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token function-variable function&quot;&gt;handleSomeEvent&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; state&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;myVal &lt;span class=&quot;token operator&quot;&gt;+=&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token function&quot;&gt;doSomething&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// state.myVal = 2;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;switch&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;state&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;myVal&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;token function&quot;&gt;handleSomeEvent&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// state.myVal = 4;&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;break&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;state&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// { myVal: 4 }&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;If we don’t call &lt;code class=&quot;language-text&quot;&gt;doSomehing()&lt;/code&gt; before our switch statement, &lt;code class=&quot;language-text&quot;&gt;handleSomeEvent()&lt;/code&gt; doesn’t even get called, and the
+same thing happens when the invocation of &lt;code class=&quot;language-text&quot;&gt;doSomething()&lt;/code&gt; is shifted &lt;em&gt;after&lt;/em&gt; the switch statement.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; state &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  myVal&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token function-variable function&quot;&gt;doSomething&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; state&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;myVal &lt;span class=&quot;token operator&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token function-variable function&quot;&gt;handleSomeEvent&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; state&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;myVal &lt;span class=&quot;token operator&quot;&gt;+=&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;switch&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;state&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;myVal&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;token function&quot;&gt;handleSomeEvent&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// never gets called&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;break&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token function&quot;&gt;doSomething&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// state.myVal = 2;&lt;/span&gt;
+
+console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;state&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// { myVal: 2 }&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Introducing pure functions following the functional programming paradigm helps us avoid shared state, thus avoiding
+issues such as cascading function errors, potential race conditions, and situations where state is stale.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; state &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  myVal&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token function-variable function&quot;&gt;f&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;state&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;state&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; myVal&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; state&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;myVal &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token function-variable function&quot;&gt;g&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;state&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;state&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; myVal&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; state&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;myVal &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; newState &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;state&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;state&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// { myVal: 1 }&lt;/span&gt;
+console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;newState&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// { myVal: 2}&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; finalState &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;g&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;state&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;state&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// { myVal: 1 }&lt;/span&gt;
+console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;finalState&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// { myVal: 4 }&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;a href=&quot;https://codepen.io/jmitchell38488/pen/NWNJrzz&quot;&gt;Check it out on codepen&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;In the example above, using the object spread, we’re able to &lt;em&gt;copy&lt;/em&gt; the values of the input onto our output state,
+while performing the mutations to the new object that we need, rather than mutating the values of &lt;code class=&quot;language-text&quot;&gt;state&lt;/code&gt; directly.
+This is a common pattern in JavaScript for copying values in one object into another, such as setting default values.&lt;/p&gt;
+&lt;p&gt;The order of function calls still matter, as the result can change depending in which order you call the functions in.
+The function composition (taking two functions to produce a single function) of &lt;code class=&quot;language-text&quot;&gt;f&lt;/code&gt; and &lt;code class=&quot;language-text&quot;&gt;g&lt;/code&gt; → &lt;code class=&quot;language-text&quot;&gt;f(g(x))&lt;/code&gt; does not
+always equal to composition of &lt;code class=&quot;language-text&quot;&gt;g(f(x))&lt;/code&gt;. In our example above it does, but what if &lt;code class=&quot;language-text&quot;&gt;g&lt;/code&gt; performs a multiplication
+rather than an addition? &lt;code class=&quot;language-text&quot;&gt;f(g(x)) ≠ g(f(x))&lt;/code&gt;.&lt;/p&gt;
+&lt;h3&gt;Immutability&lt;/h3&gt;
+&lt;p&gt;An immutable object is an object that can’t be modified after creation, through manipulation of a property, or
+through assignment. A mutable object is an object which can be modified.&lt;/p&gt;
+&lt;p&gt;Immutability and data flow is a central concept in functional programming. In JavaScript, it’s important not to
+confuse the keyword &lt;code class=&quot;language-text&quot;&gt;const&lt;/code&gt; with immutability; &lt;code class=&quot;language-text&quot;&gt;const&lt;/code&gt; declares a variable that cannot be reassigned after it has
+been created. &lt;/p&gt;
+&lt;p&gt;You can’t create immutable objects in JavaScript by default. While &lt;code class=&quot;language-text&quot;&gt;const&lt;/code&gt; prevents value reassignments, you can
+still change the properties and values of objects and arrays, assigned to &lt;code class=&quot;language-text&quot;&gt;const&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;let&lt;/code&gt; and &lt;code class=&quot;language-text&quot;&gt;var&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;However, immutable objects can still be achieved in JavaScript by using the &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/freeze&quot;&gt;Object.freeze&lt;/a&gt;, which
+prevents the modification of the object one-level deep, thus making it partially immutable.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; state &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; Object&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;freeze&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  myVal&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+state&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;myVal &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;state&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;myVal&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// 1&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; myObj &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; Object&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;freeze&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  nested&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; myVal&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+myObj&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;nested&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;myVal &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;myObj&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;nested&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;myVal&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// 2&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Frozen objects are only superficially frozen; to achieve immutable objects, you will need to deep-freeze the object,
+by recursively calling &lt;code class=&quot;language-text&quot;&gt;Object.freeze&lt;/code&gt; over all properties in the object, from the deepest child and work your way up.&lt;/p&gt;
+&lt;p&gt;Thera are several libraries in JavaScript that provide &lt;a href=&quot;https://en.wikipedia.org/wiki/Trie&quot;&gt;trie data structure&lt;/a&gt;-like behaviour with immutable
+stores, such as &lt;a href=&quot;https://immutable-js.github.io/immutable-js/&quot;&gt;immutable.js&lt;/a&gt; and &lt;a href=&quot;https://swannodette.github.io/mori/&quot;&gt;mori&lt;/a&gt;.&lt;/p&gt;
+&lt;h3&gt;Idempotency - lets get mathematic!&lt;/h3&gt;
+&lt;p&gt;Contrary to what some may suggest, a side effect isn’t a bad thing. It does not have to be hidden or unexpected
+behaviour. It also has nothing to do with &lt;a href=&quot;https://en.wikipedia.org/wiki/Idempotence#Computer_science_meaning&quot;&gt;idempotency&lt;/a&gt; in computer science - an idempotent function
+can have side effects, while a non-idempotent function may have no side effects.&lt;/p&gt;
+&lt;p&gt;A function (or subroutine) is considered idempotent in computer science when:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;In imperative programming, the system state remains the same after one or more invocations of a function
+(or subroutine) with side effects,&lt;/li&gt;
+&lt;li&gt;A pure function in functional programming,&lt;/li&gt;
+&lt;li&gt;A function is idempotent in the mathematical sense&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;A function &lt;code class=&quot;language-text&quot;&gt;f()&lt;/code&gt; with side effects is idempotent under sequential composition &lt;code class=&quot;language-text&quot;&gt;f; f&lt;/code&gt; if, when called n-times with the
+same list of arguments, the nth call has no side effects, and returns the same value as the first invocation,
+assuming no other procedures were called.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;// Idempotent function&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; x &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  x &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; n&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token function&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// x = 5&lt;/span&gt;
+&lt;span class=&quot;token function&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// x = 5&lt;/span&gt;
+&lt;span class=&quot;token function&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// x = 5&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;A typical example of an idempotent function, is a function that queries a database for a customer’s name and address.&lt;/p&gt;
+&lt;h3&gt;The influence of functional programming&lt;/h3&gt;
+&lt;p&gt;There is a growing ground swell from functional programming enthusiasts, that advocate for less side effect
+driven code. There could also be confusion between side effects and &lt;a href=&quot;https://en.wikipedia.org/wiki/Pure_function&quot;&gt;pure functions&lt;/a&gt; - a function that is
+(a) idempotent, (b) has no side effects, and (c) will return the same output for the same parameters, every time.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;// pure function&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; x &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;++&lt;/span&gt;x&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Although the code sample above does not look like it is pure, it actually is. The value of &lt;code class=&quot;language-text&quot;&gt;x&lt;/code&gt; can only be observed
+in other invocations of &lt;code class=&quot;language-text&quot;&gt;f()&lt;/code&gt;, and &lt;code class=&quot;language-text&quot;&gt;f()&lt;/code&gt; does not communicate or cache the value of &lt;code class=&quot;language-text&quot;&gt;x&lt;/code&gt; to its environment.&lt;/p&gt;
+&lt;p&gt;A function is not pure and has no side effects, if the result of the invocation of the function is different
+each time without modifying state.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;// non-pure function  &lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;z&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; x &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; Math&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;random&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;++&lt;/span&gt;x&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;A function is both not pure and has side effects if during the invocation, it modifies state. This can be state that
+is passed to it as an input parameter, or state that it can access through its closure scope.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; counter &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;increment&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token operator&quot;&gt;++&lt;/span&gt;counter&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token function&quot;&gt;increment&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// counter is now 2&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; val &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;square&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; x &lt;span class=&quot;token operator&quot;&gt;*=&lt;/span&gt; x&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token function&quot;&gt;square&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// val = 4&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;While classes colocate functionality and bound together under the namespace of the object class, functional programming
+tends to reuse a collection of functional utilities to process data. &lt;/p&gt;
+&lt;p&gt;Typically in functional programming, any type of data is fair game. For example, being able to use the &lt;code class=&quot;language-text&quot;&gt;map&lt;/code&gt; utility
+function to map over objects, strings, arrays and other data types. This is achieved by using &lt;strong&gt;higher-order
+functions&lt;/strong&gt;, which is a function that takes a function as an argument, returns a function, or both.&lt;/p&gt;
+&lt;p&gt;JavaScript has &lt;strong&gt;first class functions&lt;/strong&gt;, which allows us to treat functions as data and assign them to variables,
+pass them as arguments, return them from other function calls, etc.&lt;/p&gt;
+&lt;h3&gt;So it’s not all bad?&lt;/h3&gt;
+&lt;p&gt;So far we’ve covered what happens when a function assigns a new value to a variable, or looks like a pure function,
+but may not be one. Other side effects can happen when a function call invokes another function.&lt;/p&gt;
+&lt;p&gt;In multi-threaded applications, pausing a thread is a side effect. The state of the application has been modified in
+some way, and in some cases functions like &lt;code class=&quot;language-text&quot;&gt;sleep()&lt;/code&gt; or &lt;code class=&quot;language-text&quot;&gt;wait()&lt;/code&gt; are only useful for their side effects.&lt;/p&gt;
+&lt;p&gt;The term side effect may sound negative, but normally effect of calling a function is the very purpose of the
+function itself. In some way there is a side effect, be it memory or cpu utilisation, storing data to a database,
+creating a system log, communicating with a message bus server, etc.&lt;/p&gt;
+&lt;p&gt;In mathematics, the function is a mapping from a tuple of values (input) to a single value (output). So, given
+function &lt;code class=&quot;language-text&quot;&gt;f&lt;/code&gt; and a value &lt;code class=&quot;language-text&quot;&gt;x&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;f(x)&lt;/code&gt; will always yield the same result &lt;code class=&quot;language-text&quot;&gt;y&lt;/code&gt;. This is the basis of the pure function,
+but is often different to what the concept of a function (procedure) is in many programming languages, which is more
+of a construct.&lt;/p&gt;
+&lt;p&gt;Given the mathematical nature of what a function is, and how that differs in programming languages, there’s bound to
+be side effects in the invocation of any function, just that most of those are abstracted away from us, so that we
+don’t know about it.&lt;/p&gt;
+&lt;h3&gt;Conclusion&lt;/h3&gt;
+&lt;p&gt;There are instances though when following the declarative programming paradigm, that creating pure functions is a
+cleaner, safer and an easier way to develop. JavaScript has made great strides towards incorporating functional
+programming ideas into many of its languages features since ES2015, such as with the &lt;code class=&quot;language-text&quot;&gt;Array.*&lt;/code&gt; functions.&lt;/p&gt;
+&lt;p&gt;The negative aspect of side effects normally comes from cases where side effects are hidden or unknown. This is bad
+programming in the first place and should be avoided at all costs. Any code that produces a side effect should make
+it clear that it is doing so. Even Haskell, one of the most popular functional programming languages, still allowed
+I/O operations.&lt;/p&gt;
+&lt;p&gt;Statelessness is one approach to avoiding side effects, but that only takes into considering that state is cached and
+stored inside the application. Often this isn’t the case, such as with RESTful APIs, or Web UIs that don’t cache data
+locally.&lt;/p&gt;
+&lt;p&gt;In general, most applications will combined the declarative and imperative programming paradigms. There’s a fine
+balancing act between the declarative (what do to) and imperative (how to do) paradigms, with more a shift in the
+community towards declarative programming.&lt;/p&gt;
+&lt;p&gt;Practicing good software design principles, adopting declarative coding paradigm where necessary, and utilising
+immutable objects is a solid step in the right direction. &lt;/p&gt;</content:encoded></item><item><title><![CDATA[What is hoisting and how it works in JavaScript]]></title><description><![CDATA[The famed and often confusing term, certainly for any JavaScript developer, and it leaves many scratching their heads; what exactly is…]]></description><link>https://thejs.dev/jmitchell/what-is-hoisting-and-how-it-works-in-javascript-e1e</link><guid isPermaLink="false">https://thejs.dev/jmitchell/what-is-hoisting-and-how-it-works-in-javascript-e1e</guid><pubDate>Fri, 25 Sep 2020 17:56:00 GMT</pubDate><content:encoded>&lt;p&gt;The famed and often confusing term, certainly for any JavaScript developer, and it leaves many scratching their heads; what exactly is hoisting?&lt;/p&gt;
 &lt;p&gt;Hoisting is a term that describes a mechanism in JavaScript to provide early-access to declarations.&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Hoisting is a JavaScript mechanism where variables and function declarations are moved to the top of their scope before code execution.&lt;/p&gt;
