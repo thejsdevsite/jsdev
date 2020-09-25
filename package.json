@@ -67,6 +67,7 @@
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "test": "exit 0",
-    "deploy:local": "gatsby build && gh-pages -d public master"
+    "deploy:local": "gatsby build && gh-pages -d public master",
+    "deploy": "gh-pages -d public master -r https://$GH_TOKEN@github.com/$GH_ORG/$GH_REPO.git"
   }
 }
