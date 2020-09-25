@@ -12,11 +12,11 @@ hero: ./hero.png
 
 The famed and often confusing term, certainly for any JavaScript developer, and it leaves many scratching their heads; what exactly is hoisting?
 
-Hoisting is a term you won't find used in any pre-EMCA 2015 normative specification, but it describes a mechanism in JavaScript to provide early-access to declarations.
+Hoisting is a term that describes a mechanism in JavaScript to provide early-access to declarations.
 
 > Hoisting is a JavaScript mechanism where variables and function declarations are moved to the top of their scope before code execution.
 
-Ever wondered why in JavaScript you can interact with your variables and functions before they're declared? Then read on!
+Ever wondered why in JavaScript you can interact with your variables and functions before they've been declared? Then read on!
 
 ##### tl;dr
 Conceptually speaking, hoisting is the movement of declaractions - variables and functions - to the top of their scope, while assignments are left in place. What really happens, is that during compile time, the declarations are put into memory _first_, but physically remain in place in your code.
@@ -41,7 +41,7 @@ var foo; // declaration
 foo = "bar"; // initialization
 ```
 
-The following is an example of initialization returning a `ReferenceError`. In this case, a variable is only initialized, not declared; in order to declare something in JavaScript, it must be pre-appended with a [declaration keyword](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements).
+The following is an example of initialization returning a `ReferenceError`. In this case, a variable is only initialized, not declared; in order to declare something to be hoisted in JavaScript, it must either be explicitly declared as a [var or function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements), as implicit declaractions (initialization only) wont be hoisted.
 
 ```javascript
 console.log(foo); // prints 'ReferenceError: foo is not defined'
@@ -59,7 +59,7 @@ JavaScript allows us to declare and initialize our variables simultaneously. How
 
 All function and variable _declarations_ are hoisted to the top of their scope, while variable declarations are processed ahead of function declarations; which is why you can call functions with yet-to-be-declared variables, and get an `undefined` error.
 
-However, there is a rather large caveat. When _initializing_ a variable, that hasn't yet been declared yet, the variable is hoisted to the global scope when it is executed, rather than hoisted to its scope, say the function it's being initialized in. This _only_ happens on execution, not at compile time.
+However, there is a caveat. When _initializing_ a variable, that hasn't yet been declared yet, the variable is hoisted to the global scope when it is executed, rather than hoisted to its scope, like the function it's being initialized in. This _only_ happens on execution, not at compile time.
 
 ```javascript
 function doSomething() {
@@ -86,7 +86,7 @@ console.log(doing); // ReferenceError: doing is not defined
 The take-away is, that _declared_ variables are hoisted to the top of their scope at **compiled time**, while _undeclared_ variables are hoised to the global scope **during execution**.
 
 ### Declarations using `let` and `const` are not hoisted to global space
-`let` and `const` were introduced in ES6 for scope-based operations, but unlike `var`, do not get hoisted to global space during compile time. Variables declared with `let` are block scoped and not function scoped. This is significant, because unlike `var`, there's no risk of variable value leakage outside of the scope of execution.
+`let` and `const` were introduced in ES6 for scope-based operations, but unlike `var`, do not get hoisted to global space during compile time. Variables declared with `let` are block scoped and not function scoped. This is significant, because unlike `var`, there's no risk of variable leakage outside of the scope of execution.
 
 The downside is that `const` and `let` do not get hoisted, in local or global scope. Read more about [var, const and let][const-var-let].
 
@@ -99,7 +99,7 @@ let bar = "bar";
 ```
 
 ### Strict mode prevents sloppy hoisting
-Introduced as a utility in ES5, [strict-mode][strict-mode] is a way to _opt in_ to a restricted variant of JavaScript, implictly opting-out of [sloppy mode][sloppy-mode]. It introduces different semantics, such as eliminating some silent errors, improves some optimizations and prohibits some syntax, such as accessing variables before they're declared.
+Introduced as a utility in ES5, [strict-mode][strict-mode] is a way to _opt in_ to a restricted variant of JavaScript, implicitly opting-out of [sloppy mode][sloppy-mode]. It introduces different semantics, such as eliminating some silent errors, improves some optimizations and prohibits some syntax, such as accessing variables before they've been declared.
 
 You can opt-in to strict-mode by pre-facing your file, or function with `use strict` at the top of the scope, before any code is declared:
 
@@ -109,19 +109,19 @@ You can opt-in to strict-mode by pre-facing your file, or function with `use str
 "use strict";
 ```
 
-We can test out if we can access declarations ahead of time with strict-mode enabled:
+We can test if we can access initializations ahead of time with strict-mode enabled:
 
 ```javascript
 "use strict";
 function doSomething() {
   foo = 20;
 }
-doSomething(); // prints 'ReferenceError: foo is not defined'
-console.log(foo);
+doSomething();
+console.log(foo); // prints 'ReferenceError: foo is not defined'
 ```
 
 ### Not all functions are hoisted alike
-Functions can be loosely classified as either function declarations, or function expressions. The important difference between the two, when discussing hoisting, is _declaration_. A declared function _will be hoisted_, while a function created through an expression _will not_ be hoisted. 
+Function are classified as either function declarations, or function expressions. The important difference between the two, when discussing hoisting, is _declaration_. A declared function _will be hoisted_, while a function created through an expression _will not_ be hoisted. 
 
 ```javascript
 console.log(typeof hoistedFunction); // prints 'function'
@@ -139,8 +139,8 @@ var unhoistedFunction = function() {
 ### Order or hoisting precedence
 There are two rules you have to keep in mind when working with hoisted functions and variables:
 
-1. Variable assignment takes precedence over function declaration
-1. Function declaration takes precefence over variable declarations
+1. Function declaration takes precedence over variable declarations
+1. Variable assignment takes precedence over expression function 
 
 ```javascript
 console.log(typeof myVar); // prints 'undefined'
@@ -168,13 +168,13 @@ Unlike functions and variables, classes _do not_ get hoisted, either through dec
 
 ```javascript
 const p = new Rectangle(); // ReferenceError
-console.log(typeof Rectangle); // RefereneError
+console.log(typeof Rectangle); // ReferenceError
 
 class Rectangle {}
 ```
 
 ### Conclusion
-Let's summarise what we've learned so far:
+Let's summarise what we've learned:
 
 1. Hoisting is a mechanism that inserts variable and function declaractions into memory ahead of assignment and initialization within the given scope of execution
 1. `const`, `let`, function expressions and classes _do not_ get hoisted, and cannot be read or accessed before their declaration
