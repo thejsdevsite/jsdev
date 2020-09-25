@@ -1,4 +1,5 @@
 ---
+uid: 7djkfi87a6c
 title: const, let, var; JavaScript variables and immutability
 date: "2020-08-01T22:12:03.284Z"
 description: "const, let, var; JavaScript variables and immutability"

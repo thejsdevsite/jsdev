@@ -1,4 +1,5 @@
 ---
+uid: 7xjkfi8c47e
 title: TypeScript and JavaScript conditional chaining; a conditional trap?
 date: "2020-07-29T22:12:03.284Z"
 description: "TypeScript and JavaScript conditional chaining; a conditional trap?"

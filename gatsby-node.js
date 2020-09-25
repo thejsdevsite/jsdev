@@ -36,9 +36,11 @@ const createPages = async (graphql, actions, reporter) => {
             frontmatter {
               date(formatString: "DD MMM, YYYY")
               publishedDate(formatString: "DD MMM, YYYY")
+              updatedDate(formatString: "DD MMM, YYYY")
               title
               authors
               posttags
+              uid
             }
           }
         }
@@ -147,7 +149,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
   if (node.internal.type === `MarkdownRemark`) {
     const value = createFilePath({ node, getNode })
     const path = generateCustomPostSlug({
-      id: node.id,
+      id: node.frontmatter.uid,
       frontmatter: node.frontmatter,
       fields: {
         slug: value
@@ -209,10 +211,16 @@ exports.createSchemaCustomization = ({ actions }) => {
     }
 
     type Frontmatter {
-      title: String
-      description: String
-      date: Date @dateformat
-      primaryAuthor: String
+      title: String!
+      description: String!
+      date: Date! @dateformat
+      primaryAuthor: String!
+      publishedDate: Date @dateformat
+      updatedDate: Date @dateformat
+      uid: String!
+      published: Boolean!
+      authors: [String!]
+      tags: [String!]
     }
 
     type Fields {

@@ -1,4 +1,5 @@
 ---
+uid: 7wxkfi8a06e
 title: Practical examples for applying SOLID principles in your React applications
 date: "2020-07-01T22:12:03.284Z"
 description: "Practical examples for applying SOLID principles in your React applications"

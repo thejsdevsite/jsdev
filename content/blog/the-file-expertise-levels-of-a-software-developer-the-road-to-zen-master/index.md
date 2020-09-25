@@ -1,4 +1,5 @@
 ---
+uid: 7x8kfi8b9e7
 title: The five expertise levels of a software developer; the road to zen master
 date: "2020-08-01T22:12:03.284Z"
 description: "The five expertise levels of a software developer; the road to zen master"
