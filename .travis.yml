@@ -1,8 +1,3 @@
-language: node_js
-node_js:
-  - 12.13.0
-before_script:
-  - npm install -g gatsby
 deploy:
   provider: pages
   skip_cleanup: true
