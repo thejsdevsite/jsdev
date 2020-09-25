@@ -21,6 +21,22 @@
       }
 
       &-container {
+        &-inner {
+          @include flexCol();
+          margin: auto;
+          align-items: flex-start;
+          position: relative;
+          padding-right: var(--layout-padding);
+          padding-left: var(--layout-padding);
+          max-width: var(--site-width);
+          justify-content: space-between;
+
+          @media (min-width: $break-small) {
+            @include flexRow();
+          }
+        }
+
+
         position: relative;
         @include flexCol();
         justify-content: space-between;
