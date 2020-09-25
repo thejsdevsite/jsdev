@@ -10,6 +10,7 @@ branches:
     - /.*/
 deploy:
   provider: pages
+  cleanup: true
   skip_cleanup: true
   github_token: $GH_TOKEN
   keep_history: true
