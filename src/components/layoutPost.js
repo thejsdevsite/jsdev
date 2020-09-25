@@ -1,6 +1,7 @@
 import React from "react"
 import HeaderBar from "./layout/headerBar"
 import SidebarAuthor from "./layout/sidebarAuthor"
+import SiteFooter from "./siteFooter";
 
 const LayoutPost = ({ post, children }) => {
   return (
@@ -18,6 +19,7 @@ const LayoutPost = ({ post, children }) => {
           </div>
         </div>
       </div>
+      <SiteFooter />
     </div>
   )
 }

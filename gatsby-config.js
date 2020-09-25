@@ -1,14 +1,17 @@
 module.exports = {
   siteMetadata: {
     title: `JS.dev`,
+    started: '2020',
     author: {
-      name: `Justin Mitchell`,
-      summary: `Tinkering in all sort of JS shenanigans`,
+      name: `JS.dev`,
+      summary: `An open and transparent JavaScript development community and inclusive network.`,
     },
-    description: `A community for JS driven information sharing`,
+    description: `An open and transparent JavaScript development community and inclusive network.`,
     siteUrl: `https://thejs.dev`,
     social: {
-      twitter: `thejsdev`,
+      twitter: `thejsdevsite`,
+      github: `thejsdevsite/jsdev`,
+      facebook: ``
     },
   },
   plugins: [

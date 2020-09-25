@@ -117,10 +117,18 @@
   @include fontSmoothing();
 }
 
-@mixin flexbox() {
+@mixin flexauto($auto) {
+  flex: $auto;
+}
+
+@mixin flexbox($auto: false) {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+
+  @if $auto {
+    @include flexauto($auto);
+  }
 }
 
 @mixin flexCol() {
@@ -138,20 +146,25 @@
   filter: alpha(opacity=$value*100);
 }
 
-@mixin grid($gap, $tempCols) {
+@mixin grid($gap: false, $tempCols: false) {
   display: grid;
-  grid-gap: #{$gap};
-  grid-template-columns: #{$tempCols};
+  @if $gap {
+    grid-gap: #{$gap};
+  }
+
+  @if $tempCols {
+    grid-template-columns: #{$tempCols};
+  }
 }
 
 @mixin shimmer() {
   background: #f6f7f8;
   background-image: linear-gradient(to right, rgba(255,255,255,0.1) 10%, rgba(0,0,0,0.05) 25%, rgba(255,255,255,0.1) 40%);
   background-repeat: no-repeat;
-  background-size: 800px 104px; 
+  background-size: 800px 104px;
   display: inline-block;
-  position: relative; 
-  
+  position: relative;
+
   @include prefix(animation-duration, 1.25s, $browsers);
   @include prefix(animation-fill-mode, forwards, $browsers);
   @include prefix(animation-iteration-count, infinite, $browsers);

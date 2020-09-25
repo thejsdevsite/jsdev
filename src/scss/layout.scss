@@ -16,9 +16,7 @@
     --layout-padding: var(--su-2);
     --layout: var(--layout-content-width);
   }
-}
 
-:root {
   --article-rythm: var(--su-2);
   --article-padding-x: var(--su-3);
   --article-padding-y: var(--su-3);
@@ -53,101 +51,117 @@
 
 .site-container {
   @include flexCol();
-  
+
   .page-content {
     @include grid(var(--layout-gap), var(--layout));
     padding: var(--layout-padding);
   }
 }
 
-.jsd-layout {
-  @include grid(var(--layout-gap), var(--layout));
-  font-size: var(--fs-base);
-  max-width: var(--site-width);
-  margin: 0 auto;
-  padding: var(--layout-padding);
+.jsd {
+  &-layout {
+    @include grid(var(--layout-gap), var(--layout));
+    font-size: var(--fs-base);
+    max-width: var(--site-width);
+    margin: 0 auto;
+    padding: var(--layout-padding);
+
+    &-2-cols {
+      --layout-sidebar-right-display: none;
+      @media (min-width: $break-small) {
+        --layout: var(--layout) 0;
+      }
+
+      @media (min-width: $break-medium) {
+        --layout-sidebar-right-display: block;
+        --layout-sidebar-right-width: 1fr;
+        --layout-content-width: 2.5fr;
+        --layout: var(--layout-content-width) var(--layout-sidebar-right-width);
+      }
+    }
+
+    &-3-cols {
+      @media (min-width: $break-small) {
+        --layout: var(--layout-sidebar-left-width) var(--layout-content-width);
+        --layout-sidebar-left-row-end: span 2;
+        --layout-sidebar-left-width: 2fr;
+        --layout-sidebar-right-width: 5fr;
+        --layout-content-width: 5fr;
+      }
+
+      @media (min-width: $break-medium) {
+        --layout-sidebar-left-width: 240px;
+        --layout-sidebar-right-width: 1fr;
+        --layout-sidebar-left-row-end: initial;
+        --layout-content-width: 2fr;
+        --layout: var(--layout-sidebar-left-width) var(--layout-content-width) var(--layout-sidebar-right-width);
+      }
+
+      &-drop {
+        &-right {
+          &-left {
+            --layout-sidebar-left-display: none;
+            --layout-sidebar-right-display: none;
+            --layout-sidebar-left-width: var(--layout-drawer-width);
+            --layout-sidebar-right-width: var(--layout-drawer-width);
+
+            @media (min-width: $break-small) {
+              --layout-sidebar-left-width: 2fr;
+              --layout-sidebar-left-row-end: initial;
+              --layout-sidebar-left-display: block;
+            }
+
+            @media (min-width: $break-medium) {
+              --layout-sidebar-right-display: block;
+              --layout-sidebar-right-width: 1fr;
+              --layout-sidebar-left-width: 240px;
+            }
+          }
+        }
+      }
+    }
+  }
 }
 
-.jsd-layout-2-cols {
-  --layout-sidebar-right-display: none;
-  @media (min-width: $break-small) {
-    --layout: var(--layout) 0;
-  }
+.jsd {
+  &-layout {
+    &-sidebar {
+      &-left {
+        display: var(--layout-sidebar-left-display);
+        grid-row-end: var(--layout-sidebar-left-row-end);
+        width: var(--layout-sidebar-left-width);
+      }
 
-  @media (min-width: $break-medium) {
-    --layout-sidebar-right-display: block;
-    --layout-sidebar-right-width: 1fr;
-    --layout-content-width: 2.5fr;
-    --layout: var(--layout-content-width) var(--layout-sidebar-right-width);
-  }
-}
-
-.jsd-layout-3-cols {
-  @media (min-width: $break-small) {
-    --layout: var(--layout-sidebar-left-width) var(--layout-content-width);
-    --layout-sidebar-left-row-end: span 2;
-    --layout-sidebar-left-width: 2fr;
-    --layout-sidebar-right-width: 5fr;
-    --layout-content-width: 5fr;
-  }
-
-  @media (min-width: $break-medium) {
-    --layout-sidebar-left-width: 240px;
-    --layout-sidebar-right-width: 1fr;
-    --layout-sidebar-left-row-end: initial;
-    --layout-content-width: 2fr;
-    --layout: var(--layout-sidebar-left-width) var(--layout-content-width) var(--layout-sidebar-right-width);
+      &-right {
+        display: var(--layout-sidebar-right-display);
+        grid-row-end: var(--layout-sidebar-right-row-end);
+        width: var(--layout-sidebar-right-width);
+      }
+    }
   }
 }
 
-.jsd-layout-3-cols-drop-right-left {
-  --layout-sidebar-left-display: none;
-  --layout-sidebar-right-display: none;
-  --layout-sidebar-left-width: var(--layout-drawer-width);
-  --layout-sidebar-right-width: var(--layout-drawer-width);
+.jsd {
+  &-header {
+    &-widget {
+      .jsd-sidebar-widget {
+        padding: 0;
+      }
 
-  @media (min-width: $break-small) {
-    --layout-sidebar-left-width: 2fr;
-    --layout-sidebar-left-row-end: initial;
-    --layout-sidebar-left-display: block;
-  }
+      .hidden {
+        display: grid !important;
+      }
 
-  @media (min-width: $break-medium) {
-    --layout-sidebar-right-display: block;
-    --layout-sidebar-right-width: 1fr;
-    --layout-sidebar-left-width: 240px;
-  }
-}
-
-.jsd-layout-sidebar-left {
-  display: var(--layout-sidebar-left-display);
-  grid-row-end: var(--layout-sidebar-left-row-end);
-  width: var(--layout-sidebar-left-width);
-}
-
-.jsd-layout-sidebar-right {
-  display: var(--layout-sidebar-right-display);
-  grid-row-end: var(--layout-sidebar-right-row-end);
-  width: var(--layout-sidebar-right-width);
-}
-
-.jsd-header-widget {
-  .jsd-sidebar-widget {
-    padding: 0;
-  }
-
-  .hidden {
-    display: grid !important;
-  }
-
-  .jsd-card {
-    margin-bottom: var(--su-6);
-    &.branded {
-      --fs-m: var(--fs-s);
-      --fs-base: #{$fnt-sz-xs};
-      --fs-xs: #{$fnt-sz-xxs};
-      --base-50: var(--base-70);
-      --base-60: var(--base-70);
+      .jsd-card {
+        margin-bottom: var(--su-6);
+        &.branded {
+          --fs-m: var(--fs-s);
+          --fs-base: #{$fnt-sz-xs};
+          --fs-xs: #{$fnt-sz-xxs};
+          --base-50: var(--base-70);
+          --base-60: var(--base-70);
+        }
+      }
     }
   }
 }
@@ -267,7 +281,7 @@
   font-weight: var(--fw-bold);
   color: var(--base-100);
   margin: 0;
-  
+
   a {
     color: inherit;
 
@@ -476,20 +490,37 @@
   }
 }
 
-.jsd-article-cover {
-  position: relative;
-  width: 100%;
-  padding-top: 42%;
+.jsd {
+  &-article {
+    &-cover {
+      position: relative;
+      width: 100%;
+      padding-top: 42%;
+
+      &-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        border-radius: var(--radius) var(--radius) 0 0;
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
 }
 
-.jsd-article-cover-image {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  border-radius: var(--radius) var(--radius) 0 0;
-  object-fit: cover;
-  width: 100%;
-  height: 100%;
+.jsd {
+  &-list {
+    &-main {
+      header {
+        padding: var(--su-2) 0 0 var(--su-2);
+        @media (min-width: $break-small) {
+          padding: 0;
+        }
+      }
+    }
+  }
 }

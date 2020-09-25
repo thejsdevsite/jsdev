@@ -30,7 +30,7 @@
 
   --site-width: #{$break-large};
   --header-height: #{$header_height};
-  
+
   --ff-sans-serif: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
   --ff-monospace: 'SF Mono', SFMono-Regular, Consolas, 'Liberation Mono', Menlo, Courier, monospace;
   --ff-serif: Palatino, 'Palatino Linotype', 'Palatino LT STD', 'Book Antiqua', Georgia, serif;
@@ -101,7 +101,7 @@
   --accent-brand: #{$colour_yellow};
 
   --title-font-size: var(--su-6);
-  
+
   @media (max-width: $break-large) {
     --site-width: 100%
   }
@@ -207,13 +207,18 @@
     font-size: var(--fs-xs) !important;
   }
 }
+.l\:fs-base {
+  @media (min-width: $break-medium) {
+    font-size: var(--fs-base) !important;
+  }
+}
 
 .fw-light { font-weight: var(--fw-light); }
 .fw-normal { font-weight: var(--fw-normal); }
 .fw-med { font-weight: var(--fw-med); }
 .fw-heavy { font-weight: var(--fw-heavy); }
 .fw-bold { font-weight: var(--fw-bold); }
-.s\:fw-heavy { 
+.s\:fw-heavy {
   @media (min-width: $break-tablet) {
     font-weight: var(--fw-heavy) !important;
   }
@@ -231,46 +236,46 @@
 .ls-n3 { letter-spacing: -3px !important ;}
 .ls-n4 { letter-spacing: -4px !important ;}
 
-.l\:ls-n1 { 
-  @media (min-width: $break-medium) { 
+.l\:ls-n1 {
+  @media (min-width: $break-medium) {
     letter-spacing: -1px !important ;
-  } 
+  }
 }
-.l\:ls-n2 { 
-  @media (min-width: $break-medium) { 
+.l\:ls-n2 {
+  @media (min-width: $break-medium) {
     letter-spacing: -2px !important ;
-  } 
+  }
 }
-.l\:ls-n3 { 
-  @media (min-width: $break-medium) { 
+.l\:ls-n3 {
+  @media (min-width: $break-medium) {
     letter-spacing: -3px !important ;
-  } 
+  }
 }
-.l\:ls-n4 { 
-  @media (min-width: $break-medium) { 
+.l\:ls-n4 {
+  @media (min-width: $break-medium) {
     letter-spacing: -4px !important ;
-  } 
+  }
 }
 
-.s\:ls-n1 { 
-  @media (min-width: $break-tablet) { 
+.s\:ls-n1 {
+  @media (min-width: $break-tablet) {
     letter-spacing: -1px !important ;
-  } 
+  }
 }
-.s\:ls-n2 { 
-  @media (min-width: $break-tablet) { 
+.s\:ls-n2 {
+  @media (min-width: $break-tablet) {
     letter-spacing: -2px !important ;
-  } 
+  }
 }
-.s\:ls-n3 { 
-  @media (min-width: $break-tablet) { 
+.s\:ls-n3 {
+  @media (min-width: $break-tablet) {
     letter-spacing: -3px !important ;
-  } 
+  }
 }
-.s\:ls-n4 { 
-  @media (min-width: $break-tablet) { 
+.s\:ls-n4 {
+  @media (min-width: $break-tablet) {
     letter-spacing: -4px !important ;
-  } 
+  }
 }
 
 .left {
@@ -453,6 +458,7 @@ body {
   font-family: $def_font;
   font-size: $def_font_size;
   font-weight: $def_font_weight;
+  margin: var(--su-0);
 }
 
 figcaption,figure, div, main, header, footer, section {
@@ -574,6 +580,30 @@ img {
 
 a {
   text-decoration: none;
+
+  &.github {
+    @include flexRow();
+    @include borderRadius(var(--border-radius));
+    font-size: var(--fs-xs);
+    background: #24292E;
+    color: #fff;
+    font-family: var(--ff-sans-serif);
+    line-height: 1;
+    font-weight: normal;
+    text-decoration: none;
+    align-items: center;
+    height: 36px;
+    padding: 2px var(--su-3);
+
+    img {
+      max-width: 24px;
+      max-height: 24px;
+    }
+
+    &:hover {
+      @include opacity(0.75);
+    }
+  }
 }
 
 blockquote {

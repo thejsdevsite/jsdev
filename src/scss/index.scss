@@ -5,6 +5,7 @@
 @import 'syntax';
 @import 'postroll';
 @import 'animations';
+@import 'footer';
 
 .tag-list {
   margin: 0 auto;
@@ -37,7 +38,7 @@
   height: var(--header-height);
   background: $header_bgcolour;
   @include boxShadow(0, 1, 1, 0,rgba(0, 0, 0, 0.1));
-  
+
   .top-bar-container {
     @include flexRow();
     margin: auto;
@@ -54,36 +55,17 @@
       margin: 0;
       text-decoration: none;
       padding: 0 7px 0 9px;
-      
+
       img {
         max-height: $header_logo_max_height;
         max-width: $header_logo_max_width;
         margin: 0;
       }
-    }
 
-    a {
       &.github {
-        @include flexRow();
-        @include borderRadius(var(--border-radius));
-        font-size: var(--fs-xs);
-        background: #24292E;
-        color: #fff;
-        font-family: var(--ff-sans-serif);
-        line-height: 1;
-        font-weight: normal;
-        text-decoration: none;
-        align-items: center;
-        height: 36px;
-        padding: 2px var(--su-3);
-
         img {
-          max-width: 24px;
+          max-height: 24px;
         }
-      }
-
-      &:hover {
-        @include opacity(0.75);
       }
     }
   }

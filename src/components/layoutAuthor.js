@@ -2,6 +2,7 @@ import React from "react"
 import HeaderBar from "./layout/headerBar"
 import SidebarAuthor from "./layout/sidebarAuthor"
 import SidebarTags from "./layout/sidebarTags"
+import SiteFooter from "./siteFooter";
 
 const LayoutAuthor = ({ authorId, children }) => {
   const post = {
@@ -30,6 +31,7 @@ const LayoutAuthor = ({ authorId, children }) => {
           </div>
         </div>
       </div>
+      <SiteFooter />
     </div>
   )
 }
