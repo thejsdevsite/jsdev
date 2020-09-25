@@ -2,16 +2,11 @@ language: node_js
 node_js:
   - 12.13.0
 before_script:
-  - npm install -g gatsby
-branches:
-  only:
-    - master
-    - /^deploy-.*$/
-    - /.*/
+  - npm install -g gatsby-cli
 deploy:
-  provider: pages
+  provider: script
+  script: . ./build.sh
   skip_cleanup: true
-  github_token: $GH_TOKEN
   keep_history: true
   on:
     branch: master
