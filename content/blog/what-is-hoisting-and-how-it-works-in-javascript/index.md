@@ -3,7 +3,7 @@ title: What is hoisting and how it works in JavaScript
 date: "2020-09-25T17:56"
 description: "Hoisting is a term you won't find anywhere, but it describes a mechanism in JavaScript to provide early-access to declarations."
 published: true
-publishedDate: "2020-09-25T19:35"
+publishedDate: "2020-09-25T19:45"
 posttags: ["javascript"]
 authors: ["jmitchell"]
 primaryAuthor: "Justin Mitchell"
