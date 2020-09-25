@@ -4,8 +4,10 @@ node_js:
 before_script:
   - npm install -g gatsby
 deploy:
-  provider: script
-  script: . ./build.sh
+  provider: pages
   skip_cleanup: true
-  on:
+  github_token: $GH_TOKEN
+  keep_history: true
+  target_branch: 
+  on
     branch: master
