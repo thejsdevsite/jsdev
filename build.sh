@@ -6,8 +6,8 @@ setup_git() {
 }
 
 do_build() {
-  gatsby build
-  . ./node_modules/.bin/gh-pages -d public master -r https://$TRAVIS_EMAIL:$GH_TOKEN@github.com/thejsdevsite/jsdev.git
+  npm i
+  npm run deploy:ci
 }
 
 setup_git
