@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
-<url> <loc>https://thejs.dev/jmitchell/const-let-var-javascript-variables-and-immutability-00b</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://thejs.dev/jmitchell/the-file-expertise-levels-of-a-software-developer-the-road-to-zen-master-d97</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://thejs.dev/jmitchell/typescript-and-javascript-conditional-chaining-a-conditional-trap-eb4</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://thejs.dev/jmitchell/practical-examples-for-applying-solid-principles-in-your-react-applications-fb5</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://thejs.dev/jmitchell/const-let-var-javascript-variables-and-immutability-a6c</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://thejs.dev/jmitchell/the-file-expertise-levels-of-a-software-developer-the-road-to-zen-master-9e7</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://thejs.dev/jmitchell/typescript-and-javascript-conditional-chaining-a-conditional-trap-47e</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://thejs.dev/jmitchell/practical-examples-for-applying-solid-principles-in-your-react-applications-06e</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://thejs.dev/t/beginners</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://thejs.dev/t/codenewbie</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://thejs.dev/t/design</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
