@@ -15,7 +15,7 @@ hero: ./hero.jpg
 What are side effects? It's one of those questions that gets frequently asked on Stack Overflow, around the
 water cooler and in interviews, but what does it mean? How do you know if your code or function has a side effect? 
 
-You may have even come across the functional programming afficinado, who has claimed that no side effect code will
+You may have even come across the functional programming aficinado, who has claimed that no side effect code will
 save the day, and it's what functional programming is the bees knees for. I'll let you in on a little known secret - 
 object-oriented programming can also be developed without side effects; the side effects advice applies equally to both
 paradigms.
