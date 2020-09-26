@@ -64,6 +64,7 @@ export const pageQuery = graphql`
         frontmatter {
           date(formatString: "MMMM DD, YYYY")
           publishedDate(formatString: "MMMM DD, YYYY")
+          updatedDate(formatString: "MMMM DD, YYYY")
           title
           authors
           posttags

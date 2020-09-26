@@ -58,6 +58,7 @@ const PostRollRenderedArticle = ({ post, author, tags, hero = false }) => {
             <ArticleTitle post={post} />
             <ArticleTags tags={tags} />
             <div className="jsd-story-bottom">
+              <span className="ml-1 fs-xs">{post.ttr} min read</span>
             </div>
           </div>
         </div>

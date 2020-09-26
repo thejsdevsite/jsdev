@@ -4,7 +4,8 @@ title: What is hoisting and how it works in JavaScript
 date: "2020-09-25T17:56"
 description: "Hoisting is a term you won't find anywhere, but it describes a mechanism in JavaScript to provide early-access to declarations."
 published: true
-publishedDate: "2020-09-25T19:45"
+publishedDate: "2020-09-25T19:45:00Z"
+updatedDate: "2020-09-26T12:15:00Z"
 posttags: ["javascript"]
 authors: ["jmitchell"]
 primaryAuthor: "Justin Mitchell"
@@ -137,7 +138,7 @@ var unhoistedFunction = function() {
 }
 ```
 
-### Order or hoisting precedence
+### Order of hoisting precedence matters
 There are two rules you have to keep in mind when working with hoisted functions and variables:
 
 1. Function declaration takes precedence over variable declarations
