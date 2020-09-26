@@ -9,7 +9,7 @@ const BlogIndex = ({ data, location }) => {
 
   return (
     <Layout location={location} title={siteTitle}>
-      <SEO title="All Posts" location={location} twitterCreator="thejsdev" />
+      <SEO location={location}/>
       <header className="mb-2">
         <h2 className="fs-m fw-heavy m-0 ff-monospace">Posts</h2>
       </header>

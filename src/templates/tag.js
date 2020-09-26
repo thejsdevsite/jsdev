@@ -13,7 +13,7 @@ const TagTemplate = ({ pageContext, data, location }) => {
 
   return (
     <Layout location={location} title={siteTitle} sidebarTag={tag}>
-      <SEO title={`${tagDetails.first().title} - All Posts`} location={location} twitterCreator="thejsdev" />
+      <SEO title={tagDetails.first().title} location={location} twitterCreator="thejsdev" />
       <div className="hide show-tablet jsd-header-widget">
         <SidebarTagDetails tagDetails={tagDetails.first()} />
       </div>

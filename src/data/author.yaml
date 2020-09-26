@@ -8,7 +8,7 @@
     company: Australia Post
     url: https://auspost.com.au
   social:
-    twitter: jmitchell85
+    twitter: jmitchel85
     github: "jmitchell38488"
     facebook: "justinsmitchell"
     instagram: ""
@@ -17,5 +17,5 @@
   bio: JavaScript community website
   profilePicture: ../../content/assets/logo.svg
   location: Melbourne, Australia
-  social: 
+  social:
     twitter: thejsdevsite
