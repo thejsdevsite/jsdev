@@ -38,7 +38,7 @@ const SEO = ({ description, lang, meta, title = undefined, twitterCreator, locat
   const defaultTitle = site.siteMetadata?.title;
   const path = (site.siteMetadata.siteUrl + location.pathname).trim("/");
   const metaTitle = title ? `${ title } - ${ defaultTitle }` : defaultTitle;
-  const logo = useGetSiteLogoSrcStatic();
+  const logo = useGetSiteLogoSrcStatic(false);
 
   const metaList = [
     {
