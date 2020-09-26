@@ -10,9 +10,9 @@ import PropTypes from "prop-types";
 import { Helmet } from "react-helmet";
 import { graphql, useStaticQuery } from "gatsby";
 import useGetAuthorDetailsStatic from "../hooks/static/getAuthorDetailsStatic";
-import logo from "../img/logo.svg";
+import useGetSiteLogoSrcStatic from "../hooks/static/getSiteLogoSrcStatic";
 
-const SEO = ({ description, lang, meta, title = undefined, twitterCreator, location, heroImage, twitterDescription }) => {
+const SEO = ({ description, lang, meta, title = undefined, twitterCreator, location, heroImage, twitterDescription, publishedDate = undefined }) => {
   const authorDetails = useGetAuthorDetailsStatic(twitterCreator).first();
   const { site } = useStaticQuery(
     graphql`
@@ -25,6 +25,9 @@ const SEO = ({ description, lang, meta, title = undefined, twitterCreator, locat
             social {
               twitter
             }
+            author {
+              name
+            }
           }
         }
       }
@@ -34,7 +37,8 @@ const SEO = ({ description, lang, meta, title = undefined, twitterCreator, locat
   const metaDescription = description || site.siteMetadata.description;
   const defaultTitle = site.siteMetadata?.title;
   const path = (site.siteMetadata.siteUrl + location.pathname).trim("/");
-  const metaTitle = title ? `${title} - ${defaultTitle}` : defaultTitle;
+  const metaTitle = title ? `${ title } - ${ defaultTitle }` : defaultTitle;
+  const logo = useGetSiteLogoSrcStatic();
 
   const metaList = [
     {
@@ -55,7 +59,7 @@ const SEO = ({ description, lang, meta, title = undefined, twitterCreator, locat
     },
     {
       property: `og:image`,
-      content: heroImage || logo,
+      content: `${ site.siteMetadata.siteUrl }${heroImage || logo}`,
     },
     {
       property: `og:url`,
@@ -75,19 +79,38 @@ const SEO = ({ description, lang, meta, title = undefined, twitterCreator, locat
     },
     {
       name: `twitter:site`,
-      content: `@${ site.siteMetadata.social.twitter  }`,
+      content: `@${ site.siteMetadata.social.twitter }`,
     },
   ];
 
   if (twitterCreator) {
-    metaList.push({
-      name: `twitter:creator`,
-      content: `@${ authorDetails.social?.twitter }`,
-    });
+    metaList.push(
+      {
+        name: `twitter:creator`,
+        content: `@${ authorDetails.social?.twitter }`,
+      },
+      {
+        name: `author`,
+        content: authorDetails.name,
+      },
+    );
   } else {
+    metaList.push(
+      {
+        name: `twitter:creator`,
+        content: `@${ site.siteMetadata.social.twitter }`,
+      },
+      {
+        name: `author`,
+        content: site.siteMetadata.author.name,
+      },
+    );
+  }
+
+  if (publishedDate) {
     metaList.push({
-      name: `twitter:creator`,
-      content: `@${ site.siteMetadata.social.twitter  }`,
+      name: `article:published_time`,
+      content: publishedDate
     });
   }
 
@@ -105,7 +128,10 @@ const SEO = ({ description, lang, meta, title = undefined, twitterCreator, locat
       });
     }
   } else {
-
+    metaList.push({
+      name: `twitter:image`,
+      content: `${ site.siteMetadata.siteUrl }${logo}`,
+    });
   }
 
   return (
