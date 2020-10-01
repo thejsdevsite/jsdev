@@ -101,7 +101,61 @@ module.exports = {
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
-    `gatsby-plugin-feed`,
+    {
+      resolve: `gatsby-plugin-feed`,
+      options: {
+        query: `{
+          site {
+            siteMetadata {
+              title
+              description
+              siteUrl
+              site_url: siteUrl
+            }
+          }
+        }`,
+        feeds: [
+          {
+            serialize: ({ query: { site, allMarkdownRemark } }) => {
+              return allMarkdownRemark.edges.map(edge => {
+                return {
+                  ...edge.node.frontmatter,
+                  ...{
+                    description: edge.node.description,
+                    date: edge.node.frontmatter.updatedDate || edge.node.frontmatter.publishedDate,
+                    url: site.siteMetadata.siteUrl + edge.node.fields.slug,
+                    guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
+                    custom_elements: [{ "content:encoded": edge.node.html}]
+                  }
+                }
+              })
+            },
+            query: `{
+                allMarkdownRemark(
+                  sort: { fields: [frontmatter___publishedDate, frontmatter___publishedDate], order: DESC }
+                  filter: {frontmatter: {published: { eq: true }}}
+                ) {
+                  edges {
+                    node {
+                      excerpt
+                      html
+                      fields { slug }
+                      frontmatter {
+                        title
+                        description
+                        updatedDate
+                        publishedDate
+                      }
+                    }
+                  }
+                }
+              }`,
+            output: "/rss.xml",
+            title: "JS.dev RSS Feed"
+          }
+        ]
+      }
+    },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -111,8 +165,8 @@ module.exports = {
         background_color: `#ffffff`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `content/assets/jsdev-twitter.png`,
-      },
+        icon: `content/assets/jsdev-twitter.png`
+      }
     },
     `gatsby-plugin-react-helmet`,
     // this (optional) plugin enables Progressive Web App + Offline functionality
@@ -141,7 +195,10 @@ module.exports = {
       }
     },
     {
-      resolve: `gatsby-plugin-sitemap`
+      resolve: `gatsby-plugin-sitemap`,
+      options: {
+        exclude: [`/*/draft-*`]
+      }
     },
   ],
   mapping: {

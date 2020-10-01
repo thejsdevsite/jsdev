@@ -19,13 +19,8 @@ const createPages = async (graphql, actions, reporter) => {
   const result = await graphql(
     `{
         allMarkdownRemark(
-          sort: { fields: [frontmatter___date], order: DESC }
+          sort: { fields: [frontmatter___publishedDate, frontmatter___publishedDate, frontmatter___date], order: DESC }
           limit: 1000
-          filter: {
-            frontmatter: {
-              published: { eq: true }
-            }
-          }
         ) {
           nodes {
             id
@@ -153,7 +148,8 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       frontmatter: node.frontmatter,
       fields: {
         slug: value
-      }
+      },
+      published: node.frontmatter.published
     });
 
     createNodeField({

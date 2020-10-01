@@ -52,7 +52,7 @@ export const pageQuery = graphql`
         title
       }
     }
-    allMarkdownRemark(filter: {frontmatter: {published: {eq: true}}, fields: {slug: {eq: $slug}}}, sort: {fields: [frontmatter___date], order: ASC}, limit: 1) {
+    allMarkdownRemark(filter: {fields: {slug: {eq: $slug}}}, limit: 1) {
       nodes {
         id
         timeToRead
