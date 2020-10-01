@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "gatsby";
 import useGetPostTagDetailsStatic from "../../hooks/static/getPostTagDetailsStatic";
 import useGetFormattedTags from "../../hooks/static/getFormattedTags";
 import SidebarTagDetails from "../sidebar/sidebarTagDetails"

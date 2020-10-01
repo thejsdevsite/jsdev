@@ -46,7 +46,7 @@ const SiteFooter = () => {
           <div className={"jsd-site-footer-info"}>
             <div>
               <Link to={"/"} aria-label={siteDetails.title} title={siteDetails.title}>
-                <img src={siteLogo} />
+                <img src={siteLogo} alt={siteDetails.title} title={siteDetails.title} />
               </Link>
             </div>
             <p>{siteDetails.description}</p>

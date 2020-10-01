@@ -3,7 +3,7 @@ import { graphql, useStaticQuery } from "gatsby"
 const useGetPostsByAuthorIdStatic = (authorId) => {
   const result = useStaticQuery(graphql`
     query useGetPostsByAuthorIdStatic {
-      allMarkdownRemark(sort: {fields: [frontmatter___date], order: DESC}, limit: 1000) {
+      allMarkdownRemark(filter: {frontmatter: {published: {eq: true}}}, sort: {fields: [frontmatter___date], order: DESC}, limit: 1000) {
         nodes {
           id
           timeToRead

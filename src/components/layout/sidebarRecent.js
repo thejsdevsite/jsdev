@@ -1,4 +1,3 @@
-import { Link } from "gatsby";
 import React from "react";
 import useGetPostsStatic from "../../hooks/static/getPostsStatic";
 import useGetPostTagDetailsStatic from "../../hooks/static/getPostTagDetailsStatic";
