@@ -1,10 +1,10 @@
 User-agent: Twitterbot
-Disallow:
+allow: /notwitterbot/
 
 User-agent: Googlebot
 Disallow: /nogooglebot/
 
 User-agent: *
-Disallow: /
+allow: /
 
 Sitemap: https://thejs.dev/sitemap.xml
