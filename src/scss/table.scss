@@ -1,0 +1,48 @@
+@import 'vars';
+@import 'mixins';
+@import 'base';
+
+.jsd {
+  &-article {
+    &-body {
+      table {
+        border: 1px solid var(--base-20);
+        border-spacing: 0;
+        border-collapse: collapse;
+
+        th, td {
+          border: 1px solid var(--base-20);
+          padding: var(--su-2) var(--su-4);
+          background: var(--base-inverted);
+        }
+
+        thead {
+          th {
+            background: var(--base-0);
+            font-weight: var(--fw-heavy);
+            font-size: var(--fs-s);
+          }
+        }
+
+        tbody {
+          td {
+            font-size: var(--fs-xs);
+            font-family: var(--ff-monospace);
+
+            code {
+              font-size: inherit;
+            }
+          }
+
+          tr {
+            &:nth-child(even) {
+              td {
+                background: var(--base-0);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
