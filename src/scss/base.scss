@@ -534,6 +534,15 @@ h1, h2, h3, h4, h5 {
       }
     }
   }
+
+  a {
+    &.anchor {
+      display: none;
+      @media (min-width: $break-small) {
+        display: block;
+      }
+    }
+  }
 }
 
 h1 {
