@@ -6,6 +6,8 @@ import githubImage from "../img/github-logo.svg";
 import githubWhiteImage from "../img/github-logo-white.svg";
 import twitterImage from "../img/twitter-logo.svg";
 import facebookImage from "../img/facebook-logo.svg";
+import instagramImage from "../img/instagram-logo.svg";
+import linkedInImage from "../img/linkedin-logo.svg";
 
 const SiteFooter = () => {
   const siteLogo = useGetSiteLogoSrcStatic();
@@ -13,9 +15,10 @@ const SiteFooter = () => {
 
   const icons = [];
   if (siteDetails.social) {
-    const { github, twitter, facebook } = siteDetails.social;
+    const { github, twitter, facebook, instagram, linkedIn } = siteDetails.social;
     if (github) {
       icons.push({
+        id: "github",
         src: githubImage,
         href: `https://github.com/${github}`,
         title: "Check us out on GitHub",
@@ -23,6 +26,7 @@ const SiteFooter = () => {
     }
     if (twitter) {
       icons.push({
+        id: "twitter",
         src: twitterImage,
         href: `https://twitter.com/${twitter}`,
         title: "Follow us on Twitter",
@@ -30,14 +34,33 @@ const SiteFooter = () => {
     }
     if (facebook) {
       icons.push({
+        id: "facebook",
         src: facebookImage,
         href: `https://facebook.com/${facebook}`,
         title: "Follow us on Facebook",
       });
     }
+    if (instagram) {
+      icons.push({
+        id: "instagram",
+        src: instagramImage,
+        href: `https://instagram.com/${instagram}`,
+        title: "Follow us on Instagram",
+      });
+    }
+    if (linkedIn) {
+      icons.push({
+        id: "linkedIn",
+        src: linkedInImage,
+        href: `https://www.linkedin.com/${linkedIn}`,
+        title: "Follow us on LinkedIn",
+      });
+    }
   }
 
   const date = new Date();
+
+  console.log(icons);
 
   return (
     <footer className={"jsd-site-footer"}>
@@ -52,7 +75,7 @@ const SiteFooter = () => {
             <p>{siteDetails.description}</p>
             <ul className={"jsd-site-footer-icons"}>
               {icons.map(icon => (
-                <li>
+                <li key={`footer-social-icon-${icon.id}`}>
                   <a href={icon.href} title={icon.title} aria-label={icon.title} target="_blank" rel="noreferrer">
                     <img src={icon.src} alt={icon.title} />
                   </a>

@@ -13,6 +13,9 @@ export const useGetSiteDetailsStatic = () => {
             twitter
             github
             facebook
+            linkedIn
+            instagram
+            discord
           }
         }
       }

@@ -11,7 +11,9 @@ module.exports = {
     social: {
       twitter: `thejsdevsite`,
       github: `thejsdevsite/jsdev`,
-      facebook: ``
+      facebook: `thejsdevsite`,
+      instagram: `thejsdevsite`,
+      linkedIn: `company/thejsdevsite`
     },
   },
   plugins: [
