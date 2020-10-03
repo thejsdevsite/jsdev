@@ -8,6 +8,7 @@ import twitterImage from "../img/twitter-logo.svg";
 import facebookImage from "../img/facebook-logo.svg";
 import instagramImage from "../img/instagram-logo.svg";
 import linkedInImage from "../img/linkedin-logo.svg";
+import discordImage from "../img/discord-logo.svg";
 
 const SiteFooter = () => {
   const siteLogo = useGetSiteLogoSrcStatic();
@@ -15,7 +16,7 @@ const SiteFooter = () => {
 
   const icons = [];
   if (siteDetails.social) {
-    const { github, twitter, facebook, instagram, linkedIn } = siteDetails.social;
+    const { github, twitter, facebook, instagram, linkedIn, discord } = siteDetails.social;
     if (github) {
       icons.push({
         id: "github",
@@ -56,11 +57,17 @@ const SiteFooter = () => {
         title: "Follow us on LinkedIn",
       });
     }
+    if (discord) {
+      icons.push({
+        id: "discord",
+        src: discordImage,
+        href: `https://www.discord.com/channels/${discord}`,
+        title: "Join our Discord community",
+      });
+    }
   }
 
   const date = new Date();
-
-  console.log(icons);
 
   return (
     <footer className={"jsd-site-footer"}>

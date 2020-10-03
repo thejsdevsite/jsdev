@@ -13,7 +13,8 @@ module.exports = {
       github: `thejsdevsite/jsdev`,
       facebook: `thejsdevsite`,
       instagram: `thejsdevsite`,
-      linkedIn: `company/thejsdevsite`
+      linkedIn: `company/thejsdevsite`,
+      discord: `761215390104944640`
     },
   },
   plugins: [
