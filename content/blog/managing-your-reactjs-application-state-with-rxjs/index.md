@@ -5,11 +5,11 @@ date: "2020-10-04T13:43:00"
 description: "Diving into ReactJS state management with RxJS"
 published: true
 publishedDate: "2020-10-04T17:00:00"
-updatedDate: "2020-10-04T17:30:00"
+updatedDate: "2020-10-04T18:10:00"
 posttags: ["javascript","tutorial","react","functional"]
 authors: ["jmitchell"]
 primaryAuthor: "Justin Mitchell"
-hero: "./hero.png"
+hero: "./hero.jpg"
 ---
 
 _Do we need state management libraries?_
