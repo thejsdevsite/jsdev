@@ -115,7 +115,7 @@ const SEO = ({ description, lang, meta, title = undefined, twitterCreator, locat
   }
 
   // Article screen
-  if (location.pathname.substr(0, 7) === "/author") {
+  if (location.pathname.substr(0, 8) === "/author/") {
     if (heroImage) {
       metaList.push({
         name: `twitter:image`,
@@ -127,10 +127,20 @@ const SEO = ({ description, lang, meta, title = undefined, twitterCreator, locat
         content: `${ path }/twitter-card.jpg`,
       });
     }
-  } else {
+  } else if (["/a/", "/t/"].includes(location.pathname.substr(0, 3))) {
     metaList.push({
       name: `twitter:image`,
       content: `${ site.siteMetadata.siteUrl }${logo}`,
+    });
+  } else if (location.pathname.trim("/") === "tags" || location.pathname.trim("/") === "authors") {
+    metaList.push({
+      name: `twitter:image`,
+      content: `${ site.siteMetadata.siteUrl }${logo}`,
+    });
+  } else {
+    metaList.push({
+      name: `twitter:image`,
+      content: `${ site.siteMetadata.siteUrl }${heroImage || logo}`,
     });
   }
 
