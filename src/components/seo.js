@@ -63,7 +63,7 @@ const SEO = ({ description, lang, meta, title = undefined, twitterCreator, locat
     },
     {
       property: `og:url`,
-      content: path,
+      content: site.siteMetadata.siteUrl + location.pathname,
     },
     {
       name: `twitter:title`,
