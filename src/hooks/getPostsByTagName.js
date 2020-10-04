@@ -16,7 +16,7 @@ query Posts($tagName: String!, $offset: Int!, $limit: Int!) {
         posttags
         hero {
           childImageSharp {
-            fluid {
+            fluid(jpegQuality: 80, maxWidth: 1280) {
               src
             }
           }

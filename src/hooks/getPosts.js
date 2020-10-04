@@ -17,7 +17,7 @@ export const useGetPosts = (offset = 0, limit = 25) => {
             posttags
             hero {
               childImageSharp {
-                fluid {
+                fluid(jpegQuality: 80, maxWidth: 1280) {
                   src
                 }
               }

@@ -18,7 +18,7 @@ const useGetPostsByTagNameStatic = (tagName) => {
             posttags
             hero {
               childImageSharp {
-                fluid {
+                fluid(jpegQuality: 80, maxWidth: 1280) {
                   src
                 }
               }
