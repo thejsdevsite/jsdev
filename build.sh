@@ -6,6 +6,7 @@ setup_git() {
 }
 
 do_build() {
+  npm run updatemodules
   npm i
   npm run deploy:ci
 }
