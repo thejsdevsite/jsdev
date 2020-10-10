@@ -29,14 +29,14 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${__dirname}/content/blog`,
+        path: `${__dirname}/content/content/blog`,
         name: `blog`,
       },
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${__dirname}/content/assets`,
+        path: `${__dirname}/content/content/assets`,
         name: `assets`,
       },
     },
@@ -169,7 +169,7 @@ module.exports = {
         background_color: `#ffffff`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `content/assets/jsdev-twitter.png`
+        icon: `${__dirname}/content/content/assets/jsdev-twitter.png`
       }
     },
     `gatsby-plugin-react-helmet`,
@@ -179,7 +179,7 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${__dirname}/src/data`,
+        path: `${__dirname}/content/data`,
         name: `data`,
       },
     },
