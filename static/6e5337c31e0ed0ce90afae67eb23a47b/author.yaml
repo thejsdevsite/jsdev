@@ -1,7 +1,7 @@
 - id: jmitchell
   name: Justin Mitchell
   bio: Just another JavaScript dev in this whirlpool of craziness
-  profilePicture: ../../content/assets/profile-pic-jmitchell.jpg
+  profilePicture: ../content/assets/profile-picture/profile-pic-jmitchell.jpg
   location: Melbourne, Australia
   employment:
     position: Solution lead
@@ -15,7 +15,7 @@
 - id: thejsdev
   name: JS.dev
   bio: JavaScript community website
-  profilePicture: ../../content/assets/logo.svg
+  profilePicture: ../content/assets/logo.svg
   location: Melbourne, Australia
   social:
     twitter: thejsdevsite
