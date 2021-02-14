@@ -83,8 +83,6 @@ const SEO = ({ description, lang, meta, title = undefined, twitterCreator, locat
     },
   ];
 
-  console.log("Twitter creator: ", twitterCreator);
-
   if (twitterCreator) {
     const twitterCard = site.siteMetadata.siteUrl + location.pathname + "twitter-card.jpg";
     metaList.splice(metaList.findIndex(item => item.property === "og:image"), 1);
@@ -106,8 +104,6 @@ const SEO = ({ description, lang, meta, title = undefined, twitterCreator, locat
         content: twitterCard,
       }
     );
-
-    console.log([...metaList]);
   } else {
     metaList.push(
       {
