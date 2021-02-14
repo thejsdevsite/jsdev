@@ -30,7 +30,7 @@ const AuthorsCard = ({ post, author }) => {
         id: "facebook",
         src: facebookImage,
         href: `https://facebook.com/${facebook}`,
-        title: `Follow ${author.name} on GitHub`,
+        title: `Follow ${author.name} on Facebook`,
       });
     }
     if (twitter) {
