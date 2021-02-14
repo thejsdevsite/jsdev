@@ -8,7 +8,7 @@ import facebookImage from "../../img/facebook-logo.svg";
 export const RenderAuthorDetails = ({ post, authors }) => {
   return (
     <>
-      { authors.map(author => <AuthorsCard key={ `author-${ author.id }` } post={ post } author={ author }/>) }
+      { authors.map((author, i) => <AuthorsCard key={ `author-${ author.id }-${i}` } post={ post } author={ author }/>) }
     </>
   );
 };
@@ -62,8 +62,8 @@ const AuthorsCard = ({ post, author }) => {
               {author.bio}
             </div>
             <ul>
-              { icons.map(icon => (
-                <li className={`mr-4 ${icon.id}`}>
+              { icons.map((icon, i) => (
+                <li className={`mr-4 ${icon.id}`} key={`icon-${i}`}>
                   <a href={icon.href} target="_blank" rel="noreferrer" title={icon.title}>
                     <img src={icon.src} alt={icon.title} loading={"lazy"} className="jsd-article-cover-image" />
                   </a>

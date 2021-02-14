@@ -83,7 +83,11 @@ const SEO = ({ description, lang, meta, title = undefined, twitterCreator, locat
     },
   ];
 
+  console.log("Twitter creator: ", twitterCreator);
+
   if (twitterCreator) {
+    const twitterCard = site.siteMetadata.siteUrl + location.pathname + "twitter-card.jpg";
+    metaList.splice(metaList.findIndex(item => item.property === "og:image"), 1);
     metaList.push(
       {
         name: `twitter:creator`,
@@ -93,7 +97,17 @@ const SEO = ({ description, lang, meta, title = undefined, twitterCreator, locat
         name: `author`,
         content: authorDetails.name,
       },
+      {
+        property: `og:image`,
+        content: twitterCard
+      },
+      {
+        name: `twitter:image`,
+        content: twitterCard,
+      }
     );
+
+    console.log([...metaList]);
   } else {
     metaList.push(
       {
@@ -114,34 +128,36 @@ const SEO = ({ description, lang, meta, title = undefined, twitterCreator, locat
     });
   }
 
-  // Article screen
-  if (location.pathname.substr(0, 8) === "/author/") {
-    if (heroImage) {
+  // Assign twitter card
+  if (!metaList.find(item => item.name === "twitter:image")) {
+    if (location.pathname.substr(0, 8) === "/author/") {
+      if (heroImage) {
+        metaList.push({
+          name: `twitter:image`,
+          content: `${ site.siteMetadata.siteUrl }${ heroImage }`,
+        });
+      } else if (location) {
+        metaList.push({
+          name: `twitter:image`,
+          content: `${ path }/twitter-card.jpg`,
+        });
+      }
+    } else if (["/a/", "/t/"].includes(location.pathname.substr(0, 3))) {
       metaList.push({
         name: `twitter:image`,
-        content: `${ site.siteMetadata.siteUrl }${ heroImage }`,
+        content: `${ site.siteMetadata.siteUrl }${logo}`,
       });
-    } else if (location) {
+    } else if (location.pathname.trim("/") === "tags" || location.pathname.trim("/") === "authors") {
       metaList.push({
         name: `twitter:image`,
-        content: `${ path }/twitter-card.jpg`,
+        content: `${ site.siteMetadata.siteUrl }${logo}`,
+      });
+    } else {
+      metaList.push({
+        name: `twitter:image`,
+        content: `${ site.siteMetadata.siteUrl }${heroImage || logo}`,
       });
     }
-  } else if (["/a/", "/t/"].includes(location.pathname.substr(0, 3))) {
-    metaList.push({
-      name: `twitter:image`,
-      content: `${ site.siteMetadata.siteUrl }${logo}`,
-    });
-  } else if (location.pathname.trim("/") === "tags" || location.pathname.trim("/") === "authors") {
-    metaList.push({
-      name: `twitter:image`,
-      content: `${ site.siteMetadata.siteUrl }${logo}`,
-    });
-  } else {
-    metaList.push({
-      name: `twitter:image`,
-      content: `${ site.siteMetadata.siteUrl }${heroImage || logo}`,
-    });
   }
 
   return (
