@@ -2,16 +2,17 @@
 uid: h4jkl4k2uqq
 title: Code coverage testing, when enough is enough
 date: "2021-02-14T03:42:37.000Z"
-description: "When we go too far with code coverage, where do we draw the line and how can we improve our testing"
+description: "Code coverage unboxed, what it is, does it matter, and ways to work with it and improve coverage"
 published: true
 publishedDate: "2021-02-14T04:46:37.000Z"
+updatedDate: "2021-02-14T05:00:21.000Z"
 posttags: ["javascript","webdev","testing","react"]
 authors: ["jmitchell"]
 primaryAuthor: "Justin Mitchell"
 hero: "./hero.jpg"
 ---
 
-Coverage testing in application development is often a touch, challenging, hugely complex and often thankless task, and just one of a myriad of testing tools available to developers.
+Coverage testing in application development is often a tough, challenging, hugely complex and often thankless task, and just one of a myriad of testing tools available to developers.
 
 Designing your application architecture in advance, providing the right tools, knowledge, training and education to your team of developers, and following the best programming principles helps developers achieve what is the ultimate goal in code testing - 100% coverage.
 
