@@ -88,7 +88,7 @@ module.exports = {
                 parts: [
                   { field: "primaryAuthor" },
                   " » ",
-                  { field: "publishedDate", format: "mmmm dS" },
+                  { field: "publishedDate", format: "mmmm dS, yyyy" },
                 ],
                 font: "DejaVuSansCondensed",
                 color: "black",
