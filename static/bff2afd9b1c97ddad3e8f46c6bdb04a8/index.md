@@ -5,7 +5,7 @@ date: "2021-02-14T03:42:37.000Z"
 description: "Code coverage unboxed, what it is, does it matter, and ways to work with it and improve coverage"
 published: true
 publishedDate: "2021-02-14T04:46:37.000Z"
-updatedDate: "2021-02-14T05:00:21.000Z"
+updatedDate: "2021-02-15T00:23:44.000Z"
 posttags: ["javascript","webdev","testing","react"]
 authors: ["jmitchell"]
 primaryAuthor: "Justin Mitchell"
@@ -21,29 +21,29 @@ For the majority of projects that developers work on, code coverage is one of th
 ### What's the difference between white box and black box testing?
 White box testing is a technique that is used to validate the internal structure of the code, the design, input-output flow, decisions, error handling and more. This is otherwise known as open box testing; the code is open, transparent and accessible. Parts or all of the application can be tested, with resources, classes and functions stubbed and mocked.
 
-This is typically compromised of unit tests, and can be created using a mix of test drive development (TDD) or business driven development (BDD) tools, or plain old writing tests as you go.
+This is typically comprised of unit tests, and can be created using a mix of test drive development (TDD) or business driven development (BDD) tools, or plain old writing tests as you go.
 
 Black box testing on the other hand is testing the application as unit. Unlike white box testing where the source code is accessible and transparent, in black box testing, you are testing the inputs and outputs against the entire application. This is what E2E, user story and automated environment integration tests normally focus on; testing all of the application at once.
 
 ### Unit tests and code coverage
-Code coverage is a manner by evaluating the source code execution against a suite of tests. This can be extrapolated from any number of black box testing, and it's even possible to extract from white box testing. For the sake of simplicity, we'll refer to coverage testing as the side effect of unit testing - this is the most common testing tool used to generate code coverage.
+Code coverage is a manner by evaluating the source code execution against a suite of tests. This is typically extrapolated by unit test libraries with inbuilt code scanning tools, but can also be extracted with black box testing (eg. Istanbul). For the sake of simplicity, we'll refer to coverage testing as the side effect of unit testing - this is the most common testing tool used to generate code coverage.
 
-When a test is executed, tools scan the output of the test, the code itself and other software registers that tracks software flow. The coverage report that is generated, indicates what part of the source code has been executed and what has not been executed. The report that is generated can indicate flow issues and decision issues that the code has, and how frequently a sequence of code, function or conditional block was executed.
+When a test is executed, tools scan the output of the test, the code itself and other software registers that tracks application logic flow. The coverage report that is generated, indicates what part of the source code has been executed and what has not been executed. The report that is generated can indicate flow issues and decision issues that the code has, and how frequently a sequence of code, function or conditional block was executed.
 
 ### Limitations on code coverage
-The purpose of software testing is to validate the software and provide information about the quality of the software. What sort of tests, how tests should be created, and what they should test, is a never ending discussion between testers. Some believe that you should test the source code itself, others believe that you should only test for user behaviours. But what if the source code you write doesn't matche either scenario?
+The purpose of software testing is to validate the software and provide information about the quality of the software. What sort of tests, how tests should be created, and what they should test, is a never ending discussion between testers. Some believe that you should test the source code itself, others believe that you should only test for user behaviours. But what if the source code you write doesn't match either scenario?
 
 Ideally tests should reflect application flow, logic and where possible, behaviours. This leaves us in a bind if our logic is inherently complex, or a considerable amount of logic is abstracted with reduced application visibility. 
 
-How exactly do we test protected and private methods - should we even attempt to do that? How do we validate user input changes in JavaScript in an Angular or React application, should we load the entire eco system and validate the HTML? But wait, isn't that something we can and should be validating with Cypress as a white box test?
+How exactly do we test protected and private methods - should we even attempt to do that? How do we validate user input changes in JavaScript in an Angular or React application, should we load the entire eco system and validate the HTML? But wait, isn't that something we can and should be validating with Cypress as a white box test, or even a black box test?
 
-This is the how, what, where and why of testing. If your test cases follow your code, you're likely to run into this issue. If your test cases preceed your code, you're more than likely writing tests to validate behaviour, rather than logic. It's a delicate balancing act, and quite difficult to solve, and will require a lot of trial and error.
+This is the how, what, where and why of testing. If your test cases follow your code, you're likely to run into this issue. If your test cases precede your code, you're more than likely writing tests to validate behaviour, rather than logic. It's a delicate balancing act, and quite difficult to solve, and will require a lot of trial and error.
 
 ### Ok, so what's wrong about coverage testing?
 
-Which brings us neatly to coverage testing. Rigorous discipline is often required with testing to extract the best possible result from testing itself, especially coverage testing. The only problem is that test code is as likely to be as buggy as the software code itself.
+Which brings us neatly to coverage testing. Rigorous discipline is often required with testing to extract the best possible result from testing itself, especially measuring coverage. The only problem is that test code is as likely to be as buggy as the software code itself.
 
-Given a boolean for example, to ensure coverage for both states of the property, `true` and `false`, at least two different tests are required. This is a combinatorial problem; for each decision that is required, at least 3-5 lines of code are required to write and validate the test. This takes time to validate just one property.
+Given a boolean for example, to ensure coverage for both states of the property - `true` and `false` - at least two different tests are required. This is a combinatorial problem; for each decision that is required, at least 3-5 lines of code are required to write and validate the test. This takes time to validate just one property.
 
 ```typescript
 // Code
@@ -55,8 +55,10 @@ function foo(state: boolean): void {
         counter--;
     }
 }
+// 8 lines
 
 // Test
+// 8-10 lines bootstrap
 it("should increment counter by 1 when state is true", () => {
     expect(counter).toBe(1);
     foo(true);
@@ -68,6 +70,7 @@ it("should decrement counter by 1 when state is false", () => {
     foo(false);
     expect(counter).toBe(0);
 })
+// 10 lines of test code
 ```
 
 What about validating conditional statements and branches? The same holds true, for each possible decision, a test is required. The complexity and amount of code required is an exponential growth for each additional decision branch, especially if ternary operators are used, or in the case of Javascript, null-coalesce and optional chaining.
@@ -109,13 +112,13 @@ const something: string | undefined = myvar?.has?.a?.very?.deep?.nested?.structu
 ```
 
 #### Optional chaining
-What strategy do we use for testing the above example? while it looks like it might return either string or undefined, there are 8 possible values that can be assigned to `something` - 7 `undefined` and 1 `string` value. Do we test every branch of the statement, or can we test the assignment as a whole? The answer is yes, we can reduce our testing effort by extrapolating the lookup and assignment into a single function call.
+What strategy can we use for testing the above example? while it looks like it might return either string or undefined, there are 8 possible values that can be assigned to `something`: 7 `undefined` and 1 `string` value. Do we test every branch of the statement, or can we test the assignment as a whole? The answer is yes, we can reduce our testing effort by extrapolating the lookup and assignment into a single function call.
 
 ```typescript
 const get = <T>(key: string, val: any, default?: undefined): T {
     // Get is a recursive lookup function, split the key into tokens, take the first token
     // look up val object for key, return get(keys.join("."), val[key]);
-
+    // This code is incomplete and an example only - do not copy & paste
     const keys = key.contains(".") ? key.split(".") : [ key ];
     const tKey = keys[0];
     if (tKey in val) {
@@ -144,7 +147,7 @@ it("should return undefined if cannot find value", () => {
 })
 ```
 
-Under the hood, the optional chaining is comparatively the same as looking up a deeply-nested subproperty using conditional assignment with double ampersands `&&`:
+Under the hood, the optional chaining is comparatively the same as looking up a deeply-nested sub-property using conditional assignment with double ampersands `&&`:
 
 ```javascript
 const foo = { bar: "bar" }
@@ -169,6 +172,7 @@ function foo(foo): string {
     ? bar
     : (somethingElse ? bizz : fuzz)
 }
+// 5 lines
 
 it("should return bar", () => {
     expect(foo(foo)).toBe(bar);
@@ -181,14 +185,15 @@ it("should return bizz", () => {
 it("should return fuzz", () => {
     expect(foo(buzz)).toBe(buzz);
 });
+// 9 lines + bootstrap of test
 ```
 
 This doesn't even account for using ternary operators to set values, that are then used in conditional logic in the same block of code.
 
 #### Testing private/protected methods
-Depending on the philosophy of testing that you, or your team or project is following, private and protected methods may not just be off limits, but sacrosanct, completely off limits for testing. There are ways around this, such as fudging or brute forcing variables, using code introspection to know more about what you're testing, then reflection to modify the visible of certain functions, classes and methods.
+Depending on the philosophy of testing that you, or your team or project is following, private and protected methods may not just be off limits, but sacrosanct and completely off limits for testing. There are ways around this, such as fudging or brute forcing variables (eg. `myvar: any`), using code introspection to know more about what you're testing, then reflection to modify the visible of certain functions, classes and methods.
 
-If this is what you have to do to pass a test, then it's what you have to do. It often does lead to breaking tests as soon as there's a refactor, which may or may not be acceptable.
+If this is what you have to do to pass a test, then it's what you have to do, but you are breaking fundamental testing principles to measure the immeasurable code of your application. It often does lead to breaking tests as soon as there's a refactor, which may or may not be acceptable.
 
 Take for example the following class, what should we test, and how do we validate our non-visible properties and methods? How do we get 100% test coverage?
 
@@ -233,12 +238,21 @@ it("should accept true for doSomethingFn", () => {
 it("should accept false for doSomethingFn", () => {
     expect(foo.doSomethingFn(false)).not.toThrowException(Exception.any());
 })
+
+// Let's get to fudging/brute forcing!
+// This test is worthless, what is it telling us?
+it ("should call someFn", () => {
+  const localFoo: any = new Foo();
+  spyOn(localFoo, "someFn");
+  localFoo.doSomethingFn(true);
+  expect(localFoo.someFn).toHaveBeenCalledTimes(1);
+})
 ```
 
 These tests are fundamentally worthless; they tell us nothing of the inner working of the class, they only validate the input of a single function, don't indicate the altered state, nor any mutating logic being applied to the state. The next developer will likely look at that in a confused state and wonder why those tests exist.
 
 #### Refactoring
-When you're stuck writing tests like those above, it's time to look at the code in a new light and consider refactoring as a solution. As was discussed earlier, unit tests ensure that the section of applicaiton under test meets its design and functions as expected. We're unable to identify the design, purpose or function of class `Foo`, so lets redesign it so that it makes more sense, and we can test the "units" (the section of application) in isolation.
+When you're stuck writing tests like those above, it's time to look at the code in a new light and consider refactoring as a solution. As was discussed earlier, unit tests ensure that the section of the application under test meets its design and functions as expected. We're unable to identify the design, purpose or function of class `Foo`, so lets redesign it so that it makes more sense, and we can test the "units" (the section of application) in isolation.
 
 ```typescript
 interface Store {
@@ -288,6 +302,9 @@ beforeEach(() => {
     foo = new Foo();
 });
 
+// Every single one of these tests have meaning and we can infer execution
+// of internal logic without directly validating them through hacky methods
+
 it("should call state.get when doSomethingFn is called with true", () => {
     spyOn(state, "get").and.returnValue(undefined);
     foo.doSomethingFn(true);
@@ -326,7 +343,7 @@ it("should set state as Oranges when doSomethingFn is called with true twice", (
 ```
 
 ### Conclusion
-Coverage testing is a powerful tool that should be used to indicate strengths, weaknesses, overuse, underuse and complexity of your code. Just like any tool, it can only go far and has significant limitations, especially when it can be impossible to evaluate every path, function, and property.
+Coverage testing is a powerful tool that should be used to indicate strengths, weaknesses, overuse, under use and complexity of your code. Just like any tool, it can only go far and has significant limitations, especially when it can be impossible to evaluate every path, function, and property.
 
 While it may not be possible to reduce or remove all branches from your code, there are strategies to mitigate the impact they have, especially when using syntactic sugar like null-coalesce, ternary operators and optional chaining.
 
