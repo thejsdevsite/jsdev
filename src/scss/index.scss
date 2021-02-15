@@ -62,6 +62,8 @@
         max-height: $header_logo_max_height;
         max-width: $header_logo_max_width;
         margin: 0;
+        height: $header_logo_max_height;
+        width: $header_logo_max_width;
       }
 
       &.github {
