@@ -17,7 +17,7 @@ I'm talking of course about Internet Explorer 11.
 
 At the time [lodash][lodash] was created, ES6 was just a glimmer in the eye of web developers, an idea and a desire for most front end developers. In the world of Bootstrap, jQuery, underscore, prototype and a huge number of other tools, lodash provided a consistent and clear interface. Classes, functional programming, and all the goodness and richness that we take for granted was years away.
 
-Let's jump forward to today; we're living in the days of ES11. Browsers are no longer competing on the same standard. The three most used browsers in the world use Webkit or Chromium, standards are consistent and there's very little difference in adoption and behaviour across most browsers. We don't have to tailor our JavaScript or CSS to the version of IE, or Safari, or Firefox, or even OS, because it's all a little difference.
+Let's jump forward to today; we're living in the days of ES11. Browsers are no longer competing on the same standard. The three most used browsers in the world use Webkit or Chromium, standards are consistent and there's very little difference in adoption and behaviour across most browsers. We don't have to tailor our JavaScript or CSS to the version of IE, or Safari, or Firefox, or even OS, because it's all a little different.
 
 We're now able to just do once, and it do it well. Efficiency has never been better. But that IE11 troll still lives in the cave over there, and we need to find a way to feed it, and avoid it. Fortunately, we can rely on [core js][corejs] and [babel][babel], transpilers that spit out ES5 compatible JavaScript that IE11 through to IE Edge 18 can support.
 
@@ -26,7 +26,7 @@ Which brings us neatly to the topic of the blog - do we need lodash anymore?
 ### Do we need lodash?
 Transpilers, compilers and build tools try to solve the file size bundling issue in different ways, such as webpack using tree shaking to identify code that isn't used. But lodash is stubborn, it's a painful library to reduce in file size. Even using something as simple as `.get` imports a significant amount of code. Why? It depends on itself, tools within its own library. `cloneDeep` is another utility that adds a significant amount of code.
 
-There are more than 100 utility helpers and the majority of them aren't required anymore. Babel is the industry standard for cross-compiling ES6+ code into ES5 compatible code for older browsers. In time, that won't be required with, once users on legacy browsers have been migrated off.
+There are more than 100 utility helpers and the majority of them aren't required anymore. Babel is the industry standard for cross-compiling ES6+ code into ES5 compatible code for older browsers. In time, that won't be required once users on legacy browsers have migrated to the latest and greatest, and POS systems upgrade to a more recent version of Chrome/MS Edge.
 
 ### Tuning your build to reduce lodash bloat
 There's few options that developers have to reduce the bloat that lodash brings into your compiled build. But there are several strong options:
