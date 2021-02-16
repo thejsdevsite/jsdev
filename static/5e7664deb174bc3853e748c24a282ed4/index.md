@@ -11,11 +11,11 @@ hero: "./hero.jpg"
 publishedDate: "2021-02-16T13:09:20.055Z"
 ---
 
-When it comes to [React][reactjs] development, there's a mantra that as developers we often forget, one that never, ever should be forgot: _"less is more"_. It's much more than an expression, it's a way of thinking, a way of solving problems, and it should be an influence on your design. [KISS][kiss] has been around for more than 60 years, and it's still as presient today as it was over half a century ago.
+When it comes to [React][reactjs] development, there's a mantra that as developers we often forget, one that never, ever should be forgot: _"less is more"_. It's much more than an expression, it's a way of thinking, a way of solving problems, and it should be an influence on your design. [KISS][kiss] has been around for more than 60 years, and it's still as prescient today as it was over half a century ago.
 
 As developers, we should avoid over engineering and over developing, doing too much when a much less is required to achieve the same result. This can be a combination of refactoring our components into smaller components, reducing complexity of our component inputs/outputs, and avoiding too much processing and complex algorithms.
 
-We should be aiming to make everything as simple as possible, without making it simpler. That is to us, working as efficiently as possible without cognitive overload, without reducing the work we do to the simplest possible level, often creating more work. This isn't an issue isolated to new programmers only; we've all taken a shorter route to achieve an objective or goal. Sometimes we have no choice, sometimes we do it because we mighht not know a better way, and other times because we just don't want to invest the time to do it properly.
+We should be aiming to make everything as simple as possible, without making it simpler. That is to us, working as efficiently as possible without cognitive overload, without reducing the work we do to the simplest possible level, often creating more work. This isn't an issue isolated to new programmers only; we've all taken a shorter route to achieve an objective or goal. Sometimes we have no choice, sometimes we do it because we might not know a better way, and other times because we just don't want to invest the time to do it properly.
 
 Less is more is something that developers of all sorts of experience can engage in, and should. It will inevitably improve your application development, improve the applications you work on, and help you work more effectively. The ultimate goal of measurement of a developer shouldn't be lines of code; it should be in quality of code produced, error rate and rework required.
 
@@ -36,7 +36,7 @@ Traditional application design following MVC principles, is to split application
 
 ![MVC overview](./mvc.jpg)
 
-Let's look at an example of simplfying a common React component structure:
+Let's look at an example of simplifying a common React component structure:
 
 ```typescript
 const globalState = someStateTool();
@@ -66,7 +66,7 @@ const mySubComponent: React.FC = () => {
 }
 ```
 
-Each component includes isolated functionality, specific to that component. Thus, they are not pure, but they are independent and interchangeable. These type of components inherently respond to various user input behaviours and data driven events. That often comes hand-in-hand with increased complexity, and increased coupling, if not directly on parent components, but on streams, event subscribales and other sources of data and events.
+Each component includes isolated functionality, specific to that component. Thus, they are not pure, but they are independent and interchangeable. These type of components inherently respond to various user input behaviours and data driven events. That often comes hand-in-hand with increased complexity, and increased coupling, if not directly on parent components, but on streams, event subscriptions and other sources of data and events.
 
 There's also a significant testing effort involved in each component, as both will need to mock various services and providers and handle behaviours and interactions.
 
