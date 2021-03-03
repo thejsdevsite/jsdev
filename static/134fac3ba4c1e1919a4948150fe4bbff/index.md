@@ -11,7 +11,7 @@ hero: "./hero.jpg"
 publishedDate: "2021-03-03T06:41:49.929Z"
 ---
 
-This is the second article in a series covering different strategies to simplify your React applications.
+This is the third article in a series covering different strategies to simplify your React applications.
 
 ### Simplify a React component
 
