@@ -1,4 +1,167 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[JS.dev RSS Feed]]></title><description><![CDATA[An open and transparent JavaScript development community.]]></description><link>https://thejs.dev</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 03 Mar 2021 07:08:22 GMT</lastBuildDate><item><title><![CDATA[Less is more; simplify your React code to super power your applications - part 3]]></title><link>https://thejs.dev/jmitchell/less-is-more-simplify-your-react-code-to-super-power-your-applications-part-3-mp3</link><guid isPermaLink="false">https://thejs.dev/jmitchell/less-is-more-simplify-your-react-code-to-super-power-your-applications-part-3-mp3</guid><pubDate>Wed, 03 Mar 2021 06:41:49 GMT</pubDate><content:encoded>&lt;p&gt;This is the third article in a series covering different strategies to simplify your React applications.&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[JS.dev RSS Feed]]></title><description><![CDATA[An open and transparent JavaScript development community.]]></description><link>https://thejs.dev</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 04 Mar 2021 03:39:35 GMT</lastBuildDate><item><title><![CDATA[The keys to interview success - landing that dream job]]></title><link>https://thejs.dev/jmitchell/the-keys-to-interview-success-landing-that-dream-job-87d</link><guid isPermaLink="false">https://thejs.dev/jmitchell/the-keys-to-interview-success-landing-that-dream-job-87d</guid><pubDate>Thu, 04 Mar 2021 03:34:59 GMT</pubDate><content:encoded>&lt;p&gt;Mastering the interview technique is one of the most important things you need to do, to land not just your dream job, but any job. In today’s IT industry, technical skills are often less important than interpersonal skills. The ability to work in a team, enhance culture, become a leader and contribute to engineering improvements are highly regarded skills. You will noticed though, that there’s a combination of hard skills and soft skills in that statement.&lt;/p&gt;
+&lt;p&gt;Let’s address the elephant in the room - interviews are daunting, nerve wracking experiences. They frequently don’t reflect the abilities or skills of the applications and nerves often get the better of people, applicants and interviewers alike. In my time in IT, I’ve either conducted or been an applicant in dozens of interviews, and I have what I believe is a fantastic recipe for success, and will certainly help you land that dream job.&lt;/p&gt;
+&lt;h3 id=&quot;1-dress-for-success-but-lets-not-get-stuffy-about-it&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#1-dress-for-success-but-lets-not-get-stuffy-about-it&quot; aria-label=&quot;1 dress for success but lets not get stuffy about it permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;1. Dress for success, but let’s not get stuffy about it!&lt;/h3&gt;
+&lt;p&gt;Yes, the great statement of dress for success and you’ll land that role. Let’s face it though, IT is one of the most casual work environments you’re ever likely to see. I’ve seen people work in crocs, shorts and tees, and as bizarre as the look was, management didn’t say a thing. There are times when dress codes are mandated, and you &lt;em&gt;should&lt;/em&gt; dress accordingly, but the best way to know about dress code is to ask.&lt;/p&gt;
+&lt;p&gt;Don’t be afraid to ask what the code should be, and there’s not a lot more uncomfortable for everyone involved, when the interviewers are dressed in jeans, sneakers and a tee, and the applicant is wearing a 3-piece suit with mirror-shine shoes. Jeans and a shirt used to be taboo; it’s still not widely accepted for interviews, but don’t have to overdo it.&lt;/p&gt;
+&lt;h3 id=&quot;2-your-resume-must-make-a-statement&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#2-your-resume-must-make-a-statement&quot; aria-label=&quot;2 your resume must make a statement permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;2. Your resume &lt;em&gt;must&lt;/em&gt; make a statement&lt;/h3&gt;
+&lt;p&gt;There are a lot of resume templates on the internet, a lot of advice, and the constant advocacy of cover letters. The cold hard truth is that recruiters and companies can see dozens, if not hundreds of resumes by the time the interviews are set. A simple, direct, no frills and no-nonsense resume &lt;em&gt;will&lt;/em&gt; put you at the top of the pile. The 80’s, 90’s and 2000’s are long gone - don’t get crazy and creative in Word, it’s not required anymore.&lt;/p&gt;
+&lt;p&gt;Cover letters? Don’t bother. Recruiters often demand them, and if they do, just copy the career overview from your resume. I haven’t seen a single cover letter, nor would I read it.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/43f91a0659d8d88cb479e49b8a7303de/4b190/coverletter.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 66.89189189189189%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAANABQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAMEAgX/xAAVAQEBAAAAAAAAAAAAAAAAAAACAf/aAAwDAQACEAMQAAABslYw3iGgr//EABsQAAIDAAMAAAAAAAAAAAAAAAECAAMRBBIh/9oACAEBAAEFArkfHqOdFE49z2y0nCPf/8QAFREBAQAAAAAAAAAAAAAAAAAAABH/2gAIAQMBAT8BR//EABYRAQEBAAAAAAAAAAAAAAAAAAASIf/aAAgBAgEBPwHFP//EAB4QAAIBAwUAAAAAAAAAAAAAAAABAwIQERIhMWFx/9oACAEBAAY/AkqHt6Zkbk6OB6sDt//EABoQAQADAQEBAAAAAAAAAAAAAAEAESExQVH/2gAIAQEAAT8hxGtb6mwzl3JyKs+sdfLlEoQ1DbOs/9oADAMBAAIAAwAAABDvH//EABcRAAMBAAAAAAAAAAAAAAAAAAEQETH/2gAIAQMBAT8QFxP/xAAWEQADAAAAAAAAAAAAAAAAAAABECH/2gAIAQIBAT8QgJ//xAAbEAEBAAMBAQEAAAAAAAAAAAABEQAhMUFRsf/aAAgBAQABPxBSrsUL5vNkZoiL6T9xYkJHpcQVaxKdy4MemJKJ1XP/2Q==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Cover letters, don&amp;#39;t need them anymore&quot;
+        title=&quot;Cover letters, don&amp;#39;t need them anymore&quot;
+        src=&quot;/static/43f91a0659d8d88cb479e49b8a7303de/1c72d/coverletter.jpg&quot;
+        srcset=&quot;/static/43f91a0659d8d88cb479e49b8a7303de/a80bd/coverletter.jpg 148w,
+/static/43f91a0659d8d88cb479e49b8a7303de/1c91a/coverletter.jpg 295w,
+/static/43f91a0659d8d88cb479e49b8a7303de/1c72d/coverletter.jpg 590w,
+/static/43f91a0659d8d88cb479e49b8a7303de/4b190/coverletter.jpg 800w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;You still need to tailor your resume for the type of role and even the type of company you’re applying for, and you &lt;em&gt;should&lt;/em&gt; emphasize the qualities, skills and qualifications that any employer is looking for. Most importantly though, you should &lt;em&gt;always&lt;/em&gt; put more focus into soft skills over hard skills, and you &lt;em&gt;shouldn’t&lt;/em&gt; exaggerate on your resume. A  little embellishment is expected, but don’t outright lie. Any interviewer worth their salt will pick it out straight away because it doesn’t line up, or will have an interview strategy to really focus on those points. A senior engineer or tech lead will have a plan ahead of the resume, based on experience and technical background, and will have very specific questions and problems for the interviewee to think and explain their way through.&lt;/p&gt;
+&lt;p&gt;I have created &lt;a href=&quot;http://bit.ly/387Mdl4&quot;&gt;an example resume&lt;/a&gt; that you can use as a base and a reference.&lt;/p&gt;
+&lt;h3 id=&quot;3-soft-skills-are-more-important-than-technical-skills&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#3-soft-skills-are-more-important-than-technical-skills&quot; aria-label=&quot;3 soft skills are more important than technical skills permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;3. Soft skills are more important than technical skills&lt;/h3&gt;
+&lt;p&gt;Culture in the workplace is vital. It’s one of the intangibles that drive success. Highly successful companies will hire people that are far better cultural fits than they are technical fits. There will of course be times when the technical fit just outweighs the cultural fit, but this is becoming far less common than it used to be, as workplace laws and expectations evolve.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/d13c91a4a0bd33bb841be02872f6ca43/eea4a/culturalfit.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 56.08108108108109%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAALABQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAMEAQX/xAAWAQEBAQAAAAAAAAAAAAAAAAACAQP/2gAMAwEAAhADEAAAAX5XOI444dv/xAAaEAEBAAIDAAAAAAAAAAAAAAABAgMhABMy/9oACAEBAAEFAs3orr4XpkXLISOv/8QAGREAAwADAAAAAAAAAAAAAAAAAAIRARMh/9oACAEDAQE/AcP2Q1qf/8QAGBEBAQADAAAAAAAAAAAAAAAAAQAREjH/2gAIAQIBAT8BR7m2b//EABgQAAIDAAAAAAAAAAAAAAAAAAEhABAR/9oACAEBAAY/AojuimIhX//EABoQAAMAAwEAAAAAAAAAAAAAAAABESExQYH/2gAIAQEAAT8h1xuwQiu/ThSmp6X1GacZGJIz/9oADAMBAAIAAwAAABDr3//EABgRAQEBAQEAAAAAAAAAAAAAAAERAHEh/9oACAEDAQE/EGQREne6/s3/xAAXEQEBAQEAAAAAAAAAAAAAAAARIQAB/9oACAECAQE/EFqOMwx3/8QAGhABAQEBAAMAAAAAAAAAAAAAAREAIUFRsf/aAAgBAQABPxC2ajA81dLhHS9D2/MxDb2dYcYCXA0kwp6mHEDf/9k=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Cultural fit is very important - source ScienceMag&quot;
+        title=&quot;Cultural fit is very important - source ScienceMag&quot;
+        src=&quot;/static/d13c91a4a0bd33bb841be02872f6ca43/1c72d/culturalfit.jpg&quot;
+        srcset=&quot;/static/d13c91a4a0bd33bb841be02872f6ca43/a80bd/culturalfit.jpg 148w,
+/static/d13c91a4a0bd33bb841be02872f6ca43/1c91a/culturalfit.jpg 295w,
+/static/d13c91a4a0bd33bb841be02872f6ca43/1c72d/culturalfit.jpg 590w,
+/static/d13c91a4a0bd33bb841be02872f6ca43/a8a14/culturalfit.jpg 885w,
+/static/d13c91a4a0bd33bb841be02872f6ca43/fbd2c/culturalfit.jpg 1180w,
+/static/d13c91a4a0bd33bb841be02872f6ca43/eea4a/culturalfit.jpg 1280w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Companies have identities, which are intrinsically tied to their culture. Success begets culture, and culture drives success, it’s a symbiotic relationship of mutual reward. Personalities are assessed from multiple factors:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Language used and structure of resume&lt;/li&gt;
+&lt;li&gt;History of conflict resolution&lt;/li&gt;
+&lt;li&gt;Motivation, empowerment and teamwork&lt;/li&gt;
+&lt;li&gt;Exposure to, and experience with team based methodologies.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;While it’s not entirely fair for a lot of applicants, you need to remember that a lot of judgement is made based on technical match, and even some cultural considerations, when the final interview list is finalised.&lt;/p&gt;
+&lt;h3 id=&quot;4-open-source-is-great-but-not-its-not-the-silver-bullet&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#4-open-source-is-great-but-not-its-not-the-silver-bullet&quot; aria-label=&quot;4 open source is great but not its not the silver bullet permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;4. Open source is great, but not it’s not the silver bullet&lt;/h3&gt;
+&lt;p&gt;Open source software is great, and ongoing contributions to, or even maintaining an OS tool/library is fantastic, but it often doesn’t line up with the expectations of organisations, or even the company you’re applying for. Technology companies have become far more flexible in their working environments and arrangements in the last 5 years, but this still doesn’t guarantee success.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/f41cde56af49a069a6d1b939176cfcb9/b4294/oss.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 68.91891891891892%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAOABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAAMCBf/EABUBAQEAAAAAAAAAAAAAAAAAAAAB/9oADAMBAAIQAxAAAAHtTsQ0X//EABoQAQADAAMAAAAAAAAAAAAAAAEAAhIDEyH/2gAIAQEAAQUCeQHtlbaMkaw8n//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8BP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8BP//EABYQAAMAAAAAAAAAAAAAAAAAAAAgMf/aAAgBAQAGPwIi/wD/xAAaEAEAAwADAAAAAAAAAAAAAAABABEhQXGR/9oACAEBAAE/IalS9THJg2RZXfYOZACif//aAAwDAQACAAMAAAAQBM//xAAVEQEBAAAAAAAAAAAAAAAAAAAQIf/aAAgBAwEBPxCn/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPxA//8QAGhABAAIDAQAAAAAAAAAAAAAAAQARIUFhUf/aAAgBAQABPxB03DWEqVylS9chUiaqOhK+QkICnPSCQoJ//9k=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Open source software map&quot;
+        title=&quot;Open source software map&quot;
+        src=&quot;/static/f41cde56af49a069a6d1b939176cfcb9/1c72d/oss.jpg&quot;
+        srcset=&quot;/static/f41cde56af49a069a6d1b939176cfcb9/a80bd/oss.jpg 148w,
+/static/f41cde56af49a069a6d1b939176cfcb9/1c91a/oss.jpg 295w,
+/static/f41cde56af49a069a6d1b939176cfcb9/1c72d/oss.jpg 590w,
+/static/f41cde56af49a069a6d1b939176cfcb9/b4294/oss.jpg 600w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Why? There have been a &lt;em&gt;number&lt;/em&gt; of OSS contributors that I’ve worked with who were not team players. By no means does it mean that everyone that works on OSS is like that, far from it, but someone that spends a significant amount of time working on projects, especially popular ones, are more likely to form less desirable soft skills, that don’t suit or work with corporate life. &lt;/p&gt;
+&lt;p&gt;There are companies that have a very strong open-source software focus, that provide paid time for their employees to contribute to, and lead their own OSS projects. It’s a great environment for technology entrepreneurs to work in, especially with like minded people who’re similarly focused on achieving their goals and improving the standards of tools.&lt;/p&gt;
+&lt;p&gt;It’s a coin that flips both ways - an applicant should never be ruled out for their OSS contributions, but OSS contributions shouldn’t be used purely as a resume.&lt;/p&gt;
+&lt;h3 id=&quot;5-practice-and-train-your-brain-so-that-its-not-a-drain&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#5-practice-and-train-your-brain-so-that-its-not-a-drain&quot; aria-label=&quot;5 practice and train your brain so that its not a drain permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;5. Practice and train your brain, so that it’s not a drain&lt;/h3&gt;
+&lt;p&gt;Practice makes perfect. It takes roughly 10 thousand hours of practice before achieving mastery over your given field. After a couple hundred hours of React, you’ll be able to make an decent app. Several thousand, you can improve and design your code. 10 thousand? Jedi level React developer. Even for the best of us, that’s 4-5 years of 50-hour weeks developing React.&lt;/p&gt;
+&lt;p&gt;Even for the best of us out there, practice is important. Reassess the fundamentals, know the core parts of the technology you’re interviewing for. Working with AWS? Go through all the tools you say you know, and re-do activities, and even re-read previously completed training on Udemy.&lt;/p&gt;
+&lt;p&gt;A common question I have for React developers is to ask where and why you would use Class Components or Functional Components, and why you would use a Class component instead. Asking specific questions about a library, technology or tool is a very quick and efficient way to understand a developer knowledge.&lt;/p&gt;
+&lt;h3 id=&quot;6-its-ok-to-say-you-dont-remember-dont-know-or-dont-have-experience-with&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#6-its-ok-to-say-you-dont-remember-dont-know-or-dont-have-experience-with&quot; aria-label=&quot;6 its ok to say you dont remember dont know or dont have experience with permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;6. It’s OK to say you don’t remember, don’t know, or don’t have experience with&lt;/h3&gt;
+&lt;p&gt;Let’s face it, we’ve all been there. 20 minutes into the interview, 10 minutes of introductions, your 5-10 minute sales pitch about history and why you value this company is done, and then you’re nailed with a corker, let’s say it’s JavaScript hoisting. You know what it is and how it works. You’ve educated your peers, even wrote a blog about it, but in that time your mind goes blank.&lt;/p&gt;
+&lt;p&gt;Two things will happen - an applicant will either freeze up on the spot and finally blurt out an answer, or go on a long winded speech where the word hoisting will be used a dozen times until their memory frees up.&lt;/p&gt;
+&lt;p&gt;There are other responses you can provide. Don’t be afraid to ask to come back to that question, state that at this particular time you don’t remember, or you simply don’t know. When there’s a long, rambling answer, interviewers can deduct two things very quickly - you either don’t know and you’re afraid to say so, which means you might not ask for help in your job, or you’ll just talk until everyone forgets.&lt;/p&gt;
+&lt;p&gt;A lot of this comes down to nerves and as an interviewer, it’s our job to put you on the edge, but only briefly before bringing you back, definitely not shoving you way over the edge. I’ve been there before, it’s not pleasant - no, it’s downright awful.&lt;/p&gt;
+&lt;p&gt;In cases where you might lack experience or exposure, don’t lie, just be honest. If you’re asked about React Hooks and you haven’t used them, just say it. If your application is rejected based on that, trust me you’re better off.&lt;/p&gt;
+&lt;h3 id=&quot;7-dont-lie-on-the-resume&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#7-dont-lie-on-the-resume&quot; aria-label=&quot;7 dont lie on the resume permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;7. Don’t lie on the resume&lt;/h3&gt;
+&lt;p&gt;Is a little white lie ok? Well, that depends on what you define a little white lie! If a little white lie means you add a month or two to your experience in a company because you left after 6 weeks, sure, that’s normally ok. No one is really going to care enough to fact check that.&lt;/p&gt;
+&lt;p&gt;How about a little white lie about experience and knowledge? This is dangerous ground. If you lie your way into a job and you’re found out, a frog march awaits. People will know, they will find out and all trust will be eroded instantly. Once trust is gone, expect your tenure to be extremely short, measured in hours.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/70eb059f8b4e3e71ed8f160264a57469/4b190/frogmarch.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 75%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAPABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAAMCBP/EABUBAQEAAAAAAAAAAAAAAAAAAAEC/9oADAMBAAIQAxAAAAHUUIaulL//xAAZEAEBAQADAAAAAAAAAAAAAAACAQMEESH/2gAIAQEAAQUCutWjXkVsJtWovR46h//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8BP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8BP//EABsQAAICAwEAAAAAAAAAAAAAAAABEVECECFx/9oACAEBAAY/AseNHuk6E7cESf/EABkQAAMBAQEAAAAAAAAAAAAAAAABETEhQf/aAAgBAQABPyGVIe3GNVZHRQc0bxwLaVAKzKf/2gAMAwEAAgADAAAAED/P/8QAGBEAAgMAAAAAAAAAAAAAAAAAAAERIVH/2gAIAQMBAT8Qll4f/8QAFxEBAQEBAAAAAAAAAAAAAAAAAQAhEf/aAAgBAgEBPxADJXuX/8QAHBABAQABBQEAAAAAAAAAAAAAAREAITFBYXGB/9oACAEBAAE/EIfG8HR7kHVpQjC3b7MF8xd8K0K5tumGZoh3hKSGuf/Z&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Frog march&quot;
+        title=&quot;Frog march&quot;
+        src=&quot;/static/70eb059f8b4e3e71ed8f160264a57469/1c72d/frogmarch.jpg&quot;
+        srcset=&quot;/static/70eb059f8b4e3e71ed8f160264a57469/a80bd/frogmarch.jpg 148w,
+/static/70eb059f8b4e3e71ed8f160264a57469/1c91a/frogmarch.jpg 295w,
+/static/70eb059f8b4e3e71ed8f160264a57469/1c72d/frogmarch.jpg 590w,
+/static/70eb059f8b4e3e71ed8f160264a57469/4b190/frogmarch.jpg 800w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h3 id=&quot;conclusion&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#conclusion&quot; aria-label=&quot;conclusion permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Conclusion&lt;/h3&gt;
+&lt;p&gt;Interviews can be a tough, challenging experience, but armed with the right tools, and prepared for success, you can get that job. Some of the traditional advice, rooted in 1980s corporate world doesn’t exist anymore. Dress in a suit, wear a tie, be confident, show you can lead, etc. is advice that’s awfully specific to either certain industries, or specific roles.&lt;/p&gt;
+&lt;p&gt;Companies want people that fit right in, with a minimum of fuss, muss and friction. They’re likely to pay more for people that culturally fit in the company and enhance their reputation as a respected and choice employer, than people that are technically strong but don’t work well in a team environment.&lt;/p&gt;
+&lt;p&gt;That’s not to say that chances won’t be given - they can and will be, especially for technically gifted applicants. Just don’t burn the bridge when you get it.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Less is more; simplify your React code to super power your applications - part 3]]></title><link>https://thejs.dev/jmitchell/less-is-more-simplify-your-react-code-to-super-power-your-applications-part-3-mp3</link><guid isPermaLink="false">https://thejs.dev/jmitchell/less-is-more-simplify-your-react-code-to-super-power-your-applications-part-3-mp3</guid><pubDate>Wed, 03 Mar 2021 06:41:49 GMT</pubDate><content:encoded>&lt;p&gt;This is the third article in a series covering different strategies to simplify your React applications.&lt;/p&gt;
 &lt;h3 id=&quot;simplify-a-react-component&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#simplify-a-react-component&quot; aria-label=&quot;simplify a react component permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Simplify a React component&lt;/h3&gt;
 &lt;p&gt;There’s a number of strategies that we can take to simplify our components without drastic overhauls of existing components. Each strategy will be covered in a different blog.&lt;/p&gt;
 &lt;ol&gt;
